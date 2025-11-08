@@ -3,99 +3,68 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name · Developer Portfolio</title>
+  <title>Your Name · Home</title>
   <meta name="description" content="Developer portfolio showcasing projects and research.">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
   <header class="topbar container">
-    <a class="brand" href="/">Your Name</a>
+    <a class="brand" href="./">Your Name</a>
     <nav>
-      <a href="#projects">Projects</a>
-      <a href="#research">Research</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main class="container">
     <section class="hero">
       <h1>Building useful, well-engineered software</h1>
-      <p>I focused on VR training systems, analytics, and solid developer tooling.</p>
+      <p class="muted">I had focused on VR training systems, analytics, and developer tooling.</p>
       <p>
-        <a class="btn" href="#projects">View projects</a>
-        <a class="btn-secondary" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="projects.html">View projects</a>
+        <a class="btn-secondary" href="https://github.com/LanMalJR" target="_blank" rel="noopener">GitHub</a>
       </p>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+    <section>
+      <h2>Featured</h2>
       <div class="grid">
         <article class="card">
-          <h3>VR Tractor Driving Simulator</h3>
-          <p>Immersive training prototype with realistic vehicle dynamics and UI.</p>
+          <h3><a href="projects.html">VR Tractor Driving Simulator</a></h3>
+          <p>Immersive training prototype that demonstrated realistic vehicle dynamics and seat-gated UI.</p>
           <div class="tags">
             <span class="tag">C#</span><span class="tag">Unity</span><span class="tag">VR</span>
           </div>
         </article>
         <article class="card">
-          <h3>Eye-Tracking Research</h3>
+          <h3><a href="research.html">Eye-Tracking Research</a></h3>
           <p>Experimental pipeline that analysed gaze patterns for interaction studies.</p>
           <div class="tags">
             <span class="tag">Python</span><span class="tag">Analytics</span>
           </div>
         </article>
         <article class="card">
-          <h3>ITSL Group Project</h3>
-          <p>Team-built system with clear responsibilities and sprints.</p>
+          <h3><a href="projects.html">ITSL Group Project</a></h3>
+          <p>Team-built system that showcased sprint execution and containerised deployment.</p>
           <div class="tags">
             <span class="tag">C#</span><span class="tag">Docker</span>
           </div>
         </article>
       </div>
     </section>
-
-    <section id="research">
-      <h2>Research</h2>
-      <ul>
-        <li><strong>Honours, Computer Information Systems</strong> — VR-based tractor training simulator (report, poster, and code links to be added).</li>
-        <li><strong>Eye-Tracking</strong> — Study of gaze patterns and interaction (write-up and repo links to be added).</li>
-      </ul>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>I specialised in building training-oriented interactive systems and robust backend tooling.</p>
-
-      <h3>Skills</h3>
-      <div class="tags">
-        <span class="tag">C#</span><span class="tag">Python</span><span class="tag">SAS</span>
-        <span class="tag">Unity</span><span class="tag">Docker</span><span class="tag">Git</span>
-        <span class="tag">VS Code</span><span class="tag">Visual Studio</span>
-      </div>
-
-      <h3>Education</h3>
-      <ul>
-        <li><strong>BSc Computer Information Systems</strong>, University of the Free State</li>
-        <li><strong>BSc Honours Computer Information Systems</strong>, University of the Free State</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><a href="mailto:lanmaljrlm@gmail.com">you@example.com</a> ·
-         <a href="https://www.linkedin.com/in/langa-lmj" target="_blank" rel="noopener">LinkedIn</a> ·
-         <a href="https://github.com/LanMalJR" target="_blank" rel="noopener">GitHub</a>
-      </p>
-    </section>
   </main>
 
   <footer class="footer container">
     <small>© <span id="y"></span> Your Name</small>
   </footer>
-
   <script>
+    // set year and active tab
     document.getElementById('y').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
   </script>
 </body>
 </html>

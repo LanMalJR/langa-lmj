@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name · Research</title>
+  <meta name="description" content="Research outputs, posters, and datasets.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="topbar container">
+    <a class="brand" href="./">Your Name</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Research</h1>
+
+    <section class="card">
+      <h3>Honours, Computer Information Systems</h3>
+      <p>The thesis investigated a VR-based tractor training simulator and reported user-study outcomes.</p>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Thesis PDF</a> (placeholder)</li>
+        <li><a href="#" target="_blank" rel="noopener">Slides / Poster</a> (placeholder)</li>
+        <li><a href="https://github.com/your-username/vr-tractor" target="_blank" rel="noopener">Source repository</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3>Eye-Tracking Study</h3>
+      <p>The study analysed gaze patterns, produced reproducible figures, and documented limitations and next steps.</p>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Paper / Write-up</a> (placeholder)</li>
+        <li><a href="https://github.com/your-username/eye-tracking" target="_blank" rel="noopener">Analysis code</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Dataset</a> (if shareable)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <small>© <span id="y"></span> Your Name</small>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+  </script>
+</body>
+</html>

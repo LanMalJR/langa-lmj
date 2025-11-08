@@ -25,3 +25,6 @@ h1,h2,h3 { line-height:1.2; }
 h2 { margin-top:2rem; }
 ul { padding-left:1.2rem; }
 .footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--border); color:var(--muted); }
+/* highlight active tab */
+.topbar nav a.active { color: var(--accent); font-weight: 600; }
+.muted { color: var(--muted); }

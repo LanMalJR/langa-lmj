@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name · About</title>
+  <meta name="description" content="About, education, and skills.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="topbar container">
+    <a class="brand" href="./">Your Name</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>About</h1>
+    <p>I had specialised in building training-oriented interactive systems and reliable analytics pipelines.</p>
+
+    <h2>Education</h2>
+    <ul>
+      <li><strong>BSc Computer Information Systems</strong>, University of the Free State</li>
+      <li><strong>BSc Honours Computer Information Systems</strong>, University of the Free State</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <div class="tags">
+      <span class="tag">C#</span><span class="tag">Python</span><span class="tag">SAS</span>
+      <span class="tag">Unity</span><span class="tag">Docker</span><span class="tag">Git</span>
+      <span class="tag">VS Code</span><span class="tag">Visual Studio</span>
+    </div>
+
+    <h2>CV</h2>
+    <p><a class="btn-secondary" href="#" target="_blank" rel="noopener">Download PDF</a> (placeholder)</p>
+  </main>
+
+  <footer class="footer container">
+    <small>© <span id="y"></span> Your Name</small>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+  </script>
+</body>
+</html>
