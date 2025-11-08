@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "vr-tractor",
+    "title": "VR Tractor Driving Simulator",
+    "summary": "Immersive training prototype with realistic vehicle dynamics and seat-gated UI.",
+    "stack": ["C#", "Unity", "VR"],
+    "tags": ["vr", "unity"],
+    "repo": "https://github.com/LanMalJR/vr-tractor",
+    "cover": "assets/covers/vr-tractor.jpg",
+    "links": [
+      { "label": "Repository", "url": "https://github.com/LanMalJR/vr-tractor" }
+    ]
+  },
+  {
+    "slug": "eye-tracking",
+    "title": "Eye-Tracking Analysis Pipeline",
+    "summary": "Processed gaze data and produced figures for interpretation.",
+    "stack": ["Python", "pandas"],
+    "tags": ["analytics", "python"],
+    "repo": "https://github.com/your-username/eye-tracking",
+    "cover": "assets/covers/eye-tracking.jpg",
+    "links": [
+      { "label": "Repository", "url": "https://github.com/your-username/eye-tracking" }
+    ]
+  },
+  {
+    "slug": "itsl-group",
+    "title": "ITSL Group Project",
+    "summary": "Team-built service with containerised deployment and clear ownership.",
+    "stack": ["C#", "Docker"],
+    "tags": ["team", "docker"],
+    "repo": "https://github.com/your-username/itsl-group",
+    "cover": "assets/covers/itsl.jpg",
+    "links": [
+      { "label": "Repository", "url": "https://github.com/your-username/itsl-group" }
+    ]
+  }
+]

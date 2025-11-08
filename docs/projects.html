@@ -21,78 +21,34 @@
 
   <main class="container">
     <h1>Projects</h1>
+    <p class="muted">This page had been generated from a simple JSON file for easy future updates.</p>
 
-    <!-- Filter chips -->
+    <!-- Filter chips (tags appended dynamically) -->
     <div id="filters" class="tags">
       <button class="tag" data-tag="all">All</button>
-      <button class="tag" data-tag="vr">VR</button>
-      <button class="tag" data-tag="unity">Unity</button>
-      <button class="tag" data-tag="analytics">Analytics</button>
-      <button class="tag" data-tag="team">Team</button>
-      <button class="tag" data-tag="docker">Docker</button>
     </div>
 
-    <!-- Project cards -->
-    <div class="grid" id="cards">
-      <article class="card" data-tags="vr unity">
-        <h3>VR Tractor Driving Simulator</h3>
-        <p>This prototype demonstrated safe tractor operation in VR and supported summative evaluation.</p>
-        <div class="tags">
-          <span class="tag">C#</span><span class="tag">Unity</span><span class="tag">VR</span>
-        </div>
-        <p><a class="btn-secondary" href="https://github.com/your-username/vr-tractor" target="_blank" rel="noopener">Repository</a></p>
-      </article>
+    <!-- Cards rendered here -->
+    <div class="grid" id="cards"></div>
 
-      <article class="card" data-tags="analytics python">
-        <h3>Eye-Tracking Analysis Pipeline</h3>
-        <p>The pipeline processed gaze data and produced study figures for interpretation.</p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">pandas</span>
-        </div>
-        <p><a class="btn-secondary" href="https://github.com/your-username/eye-tracking" target="_blank" rel="noopener">Repository</a></p>
-      </article>
-
-      <article class="card" data-tags="team docker">
-        <h3>ITSL Group Project</h3>
-        <p>The team delivered a containerised service and maintained sprint cadence with clear ownership.</p>
-        <div class="tags">
-          <span class="tag">C#</span><span class="tag">Docker</span>
-        </div>
-        <p><a class="btn-secondary" href="https://github.com/your-username/itsl-group" target="_blank" rel="noopener">Repository</a></p>
-      </article>
-    </div>
-
-    <!-- How to add a new project (copy block) -->
-    <details style="margin-top:1rem">
-      <summary>How to add a new project later</summary>
-      <p>Duplicate one <em>article.card</em> block, update the text and tags, and keep <code>data-tags</code> aligned with your filter buttons.</p>
-      <pre><code>&lt;article class="card" data-tags="analytics python"&gt;
-  &lt;h3&gt;Project Name&lt;/h3&gt;
-  &lt;p&gt;One-sentence summary in past tense.&lt;/p&gt;
-  &lt;div class="tags"&gt;&lt;span class="tag"&gt;Python&lt;/span&gt;&lt;/div&gt;
-  &lt;p&gt;&lt;a class="btn-secondary" href="https://github.com/your-username/project" target="_blank" rel="noopener"&gt;Repository&lt;/a&gt;&lt;/p&gt;
-&lt;/article&gt;</code></pre>
-    </details>
+    <noscript>
+      <p class="muted">Enable JavaScript to view the project list.</p>
+    </noscript>
   </main>
 
   <footer class="footer container">
     <small>© <span id="y"></span> Your Name</small>
   </footer>
+
   <script>
+    // footer year and active tab highlight
     document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
-
-    // simple tag filter
-    const cards = [...document.querySelectorAll('#cards .card')];
-    document.getElementById('filters').addEventListener('click', e => {
-      if (!e.target.dataset.tag) return;
-      const tag = e.target.dataset.tag;
-      cards.forEach(c => {
-        const ok = tag === 'all' || c.dataset.tags.split(' ').includes(tag);
-        c.style.display = ok ? '' : 'none';
-      });
-    });
+    document.querySelectorAll('nav a')
+      .forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
   </script>
+
+  <!-- Data-driven renderer -->
+  <script src="assets/js/projects.js"></script>
 </body>
 </html>
