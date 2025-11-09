@@ -1,30 +1,61 @@
-:root {
-  --bg: #0b1020; --text: #e6e9ef; --muted: #a3aed0; --card: #11162a;
-  --border: #232a42; --accent: #60a5fa;
+/* ── Top bar: clearer, sticky, responsive ─────────────────────────────── */
+.topbar {
+  position: sticky;           /* stays visible when scrolling */
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem 0;
+  background: var(--bg);      /* solid background so content doesn't show through */
+  border-bottom: 1px solid var(--border);
 }
-@media (prefers-color-scheme: light) {
-  :root { --bg:#ffffff; --text:#0f172a; --muted:#475569; --card:#f8fafc; --border:#e2e8f0; --accent:#2563eb; }
+
+.topbar nav {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;            /* prevents overflow on small screens */
 }
-* { box-sizing: border-box; }
-body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", Arial; background:var(--bg); color:var(--text); }
-.container { max-width: 980px; margin: 0 auto; padding: 1.25rem; }
-.topbar { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-.topbar nav a { margin:0 .5rem; color:var(--muted); text-decoration:none; }
-.topbar nav a:hover { color:var(--accent); }
-.brand { text-decoration:none; color:var(--text); font-weight:700; }
-.hero h1 { font-size: 2rem; margin:.5rem 0; }
-.hero p { color:var(--muted); }
-.btn { display:inline-block; padding:.6rem .9rem; border-radius:12px; background:var(--accent); color:#fff; text-decoration:none; margin-right:.5rem; }
-.btn-secondary { display:inline-block; padding:.6rem .9rem; border-radius:12px; border:1px solid var(--border); color:var(--text); text-decoration:none; }
-.grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1rem; transition:transform .08s ease, box-shadow .08s ease; }
-.card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.12); }
-.tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
-.tag { font-size:.8rem; padding:.15rem .5rem; border:1px solid var(--border); border-radius:9999px; color:var(--muted); }
-h1,h2,h3 { line-height:1.2; }
-h2 { margin-top:2rem; }
-ul { padding-left:1.2rem; }
-.footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--border); color:var(--muted); }
-/* highlight active tab */
-.topbar nav a.active { color: var(--accent); font-weight: 600; }
-.muted { color: var(--muted); }
+
+.topbar nav a {
+  display: inline-block;
+  padding: .35rem .55rem;
+  border-radius: 10px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.topbar nav a:hover,
+.topbar nav a:focus {
+  color: var(--text);
+  background: var(--card);
+  outline: none;
+}
+
+/* keep this AFTER the :hover rule so it wins when active */
+.topbar nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+  background: rgba(96, 165, 250, 0.12); /* subtle accent veil; OK in light/dark */
+}
+
+/* brand stays readable and on one line */
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Muted text: consistent, accessible, link-friendly ─────────────────── */
+.muted {
+  color: var(--muted);
+}
+
+.muted a {
+  color: inherit;                 /* links adopt muted tone */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
