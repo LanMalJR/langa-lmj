@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Your Name · Projects</title>
-  <meta name="description" content="Selected software projects and case studies.">
+  <meta name="description" content="Personal projects and case studies.">
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -21,34 +21,21 @@
 
   <main class="container">
     <h1>Projects</h1>
-    <p class="muted">This page had been generated from a simple JSON file for easy future updates.</p>
-
-    <!-- Filter chips (tags appended dynamically) -->
-    <div id="filters" class="tags">
-      <button class="tag" data-tag="all">All</button>
-    </div>
-
-    <!-- Cards rendered here -->
-    <div class="grid" id="cards"></div>
-
-    <noscript>
-      <p class="muted">Enable JavaScript to view the project list.</p>
-    </noscript>
+    <section class="card">
+      <p class="muted">
+        There were no public personal projects available yet. This section would be updated as new work was published.
+        For collaboration or private demos, please use the Contact page.
+      </p>
+    </section>
   </main>
 
   <footer class="footer container">
     <small>© <span id="y"></span> Your Name</small>
   </footer>
-
   <script>
-    // footer year and active tab highlight
     document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a')
-      .forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
   </script>
-
-  <!-- Data-driven renderer -->
-  <script src="assets/js/projects.js"></script>
 </body>
 </html>
