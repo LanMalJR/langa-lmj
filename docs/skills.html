@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name · Skills</title>
+  <meta name="description" content="Core skills: languages, tools, frameworks, and domains.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="topbar container">
+    <a class="brand" href="./">Your Name</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="skills.html">Skills</a>
+      <a href="docs.html">Docs</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Skills</h1>
+    <p class="muted">I present the core competencies I apply on projects and research.</p>
+
+    <section class="card">
+      <h3>Programming languages</h3>
+      <div class="tags">
+        <span class="tag">C#</span>
+        <span class="tag">Python</span>
+        <span class="tag">SAS</span>
+        <span class="tag">SQL</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Tools</h3>
+      <div class="tags">
+        <span class="tag">Docker</span>
+        <span class="tag">Git</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Visual Studio</span>
+        <span class="tag">Jupyter</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Frameworks and libraries</h3>
+      <div class="tags">
+        <span class="tag">.NET</span>
+        <span class="tag">Unity</span>
+        <span class="tag">XR Interaction Toolkit</span>
+        <span class="tag">pandas</span>
+        <span class="tag">NumPy</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Domains</h3>
+      <div class="tags">
+        <span class="tag">VR training</span>
+        <span class="tag">Human–computer interaction</span>
+        <span class="tag">Analytics</span>
+        <span class="tag">Business analysis</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <small>© <span id="y"></span> Your Name</small>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+  </script>
+</body>
+</html>

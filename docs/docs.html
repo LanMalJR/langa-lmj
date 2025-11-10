@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name · Docs</title>
+  <meta name="description" content="Documents: manuals, theses, papers, posters, datasets.">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="topbar container">
+    <a class="brand" href="./">Your Name</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="skills.html">Skills</a>
+      <a href="docs.html">Docs</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Docs</h1>
+
+    <section class="card">
+      <h3>Disclaimer</h3>
+      <p class="muted">
+        All projects and research papers on this site fall under the University of the Free State.
+        Intellectual property, data ownership, and reproduction rights may reside with UFS and supervisors.
+        This page presents summaries and public copies where appropriate.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>VR Tractor Driving Simulator</h3>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Technical Manual (PDF)</a></li>
+        <li><a href="#" target="_blank" rel="noopener">User Manual (PDF)</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Honours Thesis / Report (PDF)</a></li>
+        <li><a href="https://github.com/your-username/vr-tractor" target="_blank" rel="noopener">Source Repository</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3>Eye-tracking with Tobii</h3>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Eye-tracking Paper (PDF)</a></li>
+        <li><a href="https://github.com/your-username/eye-tracking" target="_blank" rel="noopener">Analysis Code</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Dataset</a> (if shareable)</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3>AI Research</h3>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">AI Research Paper (PDF)</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Slides / Poster</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3>ACCESS Business Analysis</h3>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Business Analysis Report (PDF)</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Slides</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h3>ITSL Third-year Research Project</h3>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Project Report (PDF)</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Repository</a> (if public)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <small>© <span id="y"></span> Your Name</small>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+  </script>
+</body>
+</html>
