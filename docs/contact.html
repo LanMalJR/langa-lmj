@@ -3,31 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Langelihle Malaza· Contact</title>
+  <title>Langelihle Malaza · Contact</title>
   <meta name="description" content="How to reach me.">
-   <link rel="stylesheet" href="assets/css/site.css?v=10"> 
+  <link rel="stylesheet" href="assets/css/site.css?v=10">
 </head>
 <body>
   <header class="topbar container">
     <a class="brand" href="./">Langelihle Malaza</a>
     <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="about.html">About</a>
-    <a href="resume.html">Resume</a>
-    <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main class="container">
-    <h1>Contact</h1>
-    <p><a href="mailto:lanmaljrlm@gmail.com">lanmaljrlm@gmail.com</a></p>
-    <p>
-      <a class="btn-secondary" href="https://www.linkedin.com/in/langa-lmj/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn-secondary" href="https://github.com/LanMalJR" target="_blank" rel="noopener">GitHub</a>
-    </p>
+    <section class="hero">
+      <h1>Connect With Me</h1>
+      <p class="muted">Reach out via social or email — I’m open to opportunities and collaboration.</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>GitHub</h3>
+        <p>Check out my repositories, contributions, and open-source work.</p>
+        <a class="btn-secondary" href="https://github.com/LanMalJR" target="_blank" rel="noopener">Visit Profile</a>
+      </div>
+
+      <div class="card">
+        <h3>LinkedIn</h3>
+        <p>Connect with me professionally and view my full work experience.</p>
+        <a class="btn-secondary" href="https://www.linkedin.com/in/langa-lmj/" target="_blank" rel="noopener">Visit Profile</a>
+      </div>
+
+      <div class="card">
+        <h3>Email</h3>
+        <p>Send me an email directly for inquiries and business opportunities.</p>
+        <a class="btn-secondary" href="mailto:lanmaljrlm@gmail.com">Send Email</a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer container">
@@ -36,7 +54,9 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
   </script>
 </body>
 </html>
