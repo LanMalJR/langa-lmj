@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Resume</title>
   <meta name="description" content="Resume documents (full and redacted).">
-   <link rel="stylesheet" href="assets/css/site.css?v=10"> 
+  <link rel="stylesheet" href="assets/css/site.css?v=10"> 
 </head>
 <body>
   <header class="topbar container">
@@ -25,10 +25,9 @@
     <h1>Resume</h1>
 
     <section class="card">
-      <h3>Downloads</h3>
-      <p class="muted">I provide a full resume and a redacted version for public sharing.</p>
+      <h3>Curriculum Vitae</h3>
+      <p class="muted">Below are downloadable PDF versions of my full and redacted resumes.</p>
       <ul>
-        <!-- Replace these paths with your actual files -->
         <li><a href="assets/docs/resume-full.pdf" target="_blank" rel="noopener">Resume, full</a></li>
         <li><a href="assets/docs/resume-redacted.pdf" target="_blank" rel="noopener">Resume, redacted</a></li>
       </ul>
@@ -41,7 +40,9 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
   </script>
 </body>
 </html>
