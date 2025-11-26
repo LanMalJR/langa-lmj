@@ -1,119 +1,147 @@
-<!-- Replace the content in your research.html <main> tag with this -->
-<main class="container">
-  <h1>Research</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Langelihle Malaza · Research</title>
+  <meta name="description" content="Personal projects and case studies.">
+  <link rel="stylesheet" href="assets/css/site.css?v=10">
+</head>
+<body>
+  <header class="topbar container">
+    <a class="brand" href="./">Langelihle Malaza</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <section class="card">
-    <div class="tags">
-      <a class="tag" href="#projects">Research Projects</a>
-      <a class="tag" href="#papers">Papers & Reports</a>
-    </div>
-  </section>
+  <main class="container">
+    <h1>Research</h1>
 
-  <section class="card">
-    <h3>Disclaimer</h3>
-    <p class="muted">
-      All projects and papers on this page fall under the University of the Free State. Intellectual property,
-      data ownership, and reproduction rights may reside with UFS and the listed supervisors. This site presents
-      short summaries for portfolio purposes only.
-    </p>
-  </section>
+    <section class="card">
+      <div class="tags">
+        <a class="tag" href="#projects">Research Projects</a>
+        <a class="tag" href="#papers">Papers & Reports</a>
+      </div>
+    </section>
 
-  <!-- ============================================================ -->
-  <h2 id="projects">Research Projects</h2>
+    <section class="card">
+      <h3>Disclaimer</h3>
+      <p class="muted">
+        All projects and papers on this page fall under the University of the Free State. Intellectual property,
+        data ownership, and reproduction rights may reside with UFS and the listed supervisors. This site presents
+        short summaries for portfolio purposes only.
+      </p>
+    </section>
 
-  <!-- Eye-tracking (moved) -->
-  <section class="card" id="eye-tracking">
-    <h3>Eye-tracking Study (Tobii)</h3>
-    <p>
-      I analyse gaze behaviour using a Tobii device as part of the HCI-Honours module. The study runs with seven
-      participants and reports heat maps, fixations, and related measures.
-    </p>
-    <ul>
-      <li><strong>Supervisor:</strong> Prof. Tanya Stott</li>
-      <li><strong>Assessor:</strong> Dr Bennie Botha</li>
-      <li><strong>Participants:</strong> 7</li>
-      <li><strong>Methods:</strong> Heat maps, fixation analysis</li>
-      <li><strong>Stack:</strong> Python, pandas, Tobii tooling</li>
-      <li><strong>Outputs:</strong> Paper and analysis code</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">HCI</span><span class="tag">Analytics</span><span class="tag">Tobii</span>
-    </div>
-  </section>
+    <h2 id="projects">Research Projects</h2>
 
-  <!-- VR Tractor -->
-  <section class="card" id="vr-tractor">
-    <h3>Tractor Driving VR</h3>
-    <p>
-      I built a training-oriented VR simulator for safe tractor operation. The prototype presents realistic vehicle
-      dynamics, seat-gated controls, and a structured evaluation workflow. The technical manual is complete. The project
-      ran to completion in under 8 months.
-    </p>
-    <ul>
-      <li><strong>Supervisor:</strong> Dr B. Botha</li>
-      <li><strong>Co-assessor:</strong> C. Cilliers</li>
-      <li><strong>Tools & languages:</strong> C#, Unity, XR Interaction Toolkit, Git, Docker</li>
-      <li><strong>Outputs:</strong> Technical manual, user manual, honours report</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">VR</span><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">XRI</span>
-    </div>
-  </section>
+    <section class="card" id="eye-tracking">
+      <h3>Eye-tracking Study (Tobii)</h3>
+      <p>
+        I analyse gaze behaviour using a Tobii device as part of the HCI-Honours module. The study runs with seven
+        participants and reports heat maps, fixations, and related measures.
+      </p>
+      <ul>
+        <li><strong>Supervisor:</strong> Prof. Tanya Stott</li>
+        <li><strong>Assessor:</strong> Dr Bennie Botha</li>
+        <li><strong>Participants:</strong> 7</li>
+        <li><strong>Methods:</strong> Heat maps, fixation analysis</li>
+        <li><strong>Stack:</strong> Python, pandas, Tobii tooling</li>
+        <li><strong>Outputs:</strong> Paper and analysis code</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">HCI</span><span class="tag">Analytics</span><span class="tag">Tobii</span>
+      </div>
+    </section>
 
-  <!-- ITSL Group project -->
-  <section class="card" id="itsl">
-    <h3>ITSL Group Project</h3>
-    <p>
-      The team prepared a horizontal website prototype for a learning program and shipped technical documentation to support it.
-      Six group members collaborated with clear responsibilities and review cycles.
-    </p>
-    <ul>
-      <li><strong>Assessor:</strong> Dr R. Fouche</li>
-      <li><strong>Team size:</strong> 6</li>
-      <li><strong>Focus:</strong> Web prototype, documentation, learning content structure</li>
-      <li><strong>Artifacts:</strong> Prototype site and technical documentation</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">Team</span><span class="tag">Web</span><span class="tag">Documentation</span>
-    </div>
-  </section>
+    <section class="card" id="vr-tractor">
+      <h3>Tractor Driving VR</h3>
+      <p>
+        I built a training-oriented VR simulator for safe tractor operation. The prototype presents realistic vehicle
+        dynamics, seat-gated controls, and a structured evaluation workflow. The technical manual is complete. The project
+        ran to completion in under 8 months.
+      </p>
+      <ul>
+        <li><strong>Supervisor:</strong> Dr B. Botha</li>
+        <li><strong>Co-assessor:</strong> C. Cilliers</li>
+        <li><strong>Tools & languages:</strong> C#, Unity, XR Interaction Toolkit, Git, Docker</li>
+        <li><strong>Outputs:</strong> Technical manual, user manual, honours report</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">VR</span><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">XRI</span>
+      </div>
+    </section>
 
-  <!-- ============================================================ -->
-  <h2 id="papers">Papers & Reports</h2>
+    <section class="card" id="itsl">
+      <h3>ITSL Group Project</h3>
+      <p>
+        The team prepared a horizontal website prototype for a learning program and shipped technical documentation to support it.
+        Six group members collaborated with clear responsibilities and review cycles.
+      </p>
+      <ul>
+        <li><strong>Assessor:</strong> Dr R. Fouche</li>
+        <li><strong>Team size:</strong> 6</li>
+        <li><strong>Focus:</strong> Web prototype, documentation, learning content structure</li>
+        <li><strong>Artifacts:</strong> Prototype site and technical documentation</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Team</span><span class="tag">Web</span><span class="tag">Documentation</span>
+      </div>
+    </section>
 
-  <!-- ACCESS business analysis -->
-  <section class="card" id="access-analysis">
-    <h3>Business Analysis for ACCESS</h3>
-    <p>
-      I prepared a structured analysis for ACCESS, an organisation at UFS, to support NPO registration and community impact.
-      Six group members contributed to the document, covering segments, value propositions, and operational considerations.
-    </p>
-    <ul>
-      <li><strong>Assessor:</strong> Dr E. E. Benedict</li>
-      <li><strong>Team size:</strong> 6</li>
-      <li><strong>Focus:</strong> NPO registration pathway, Business Model Canvas, stakeholder view</li>
-      <li><strong>Outputs:</strong> Business analysis report and slides</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">Business Analysis</span><span class="tag">BMC</span><span class="tag">NPO</span>
-    </div>
-  </section>
+    <h2 id="papers">Papers & Reports</h2>
 
-  <!-- AI research paper -->
-  <section class="card" id="ai-research">
-    <h3>AI Research Paper (IT Project Management)</h3>
-    <p>
-      I examined the role of AI in a software development context using “Apex” as a fictional company. The paper discusses
-      responsible integration, workflow changes, and project management implications.
-    </p>
-    <ul>
-      <li><strong>Module:</strong> IT Project Management</li>
-      <li><strong>Assessor:</strong> Dr R. Bezuidenhout</li>
-      <li><strong>Scope:</strong> AI’s role in software teams and delivery</li>
-      <li><strong>Outputs:</strong> Paper and optional slides</li>
-    </ul>
-    <div class="tags">
-      <span class="tag">AI</span><span class="tag">Project Management</span><span class="tag">Software Engineering</span>
-    </div>
-  </section>
-</main>
+    <section class="card" id="access-analysis">
+      <h3>Business Analysis for ACCESS</h3>
+      <p>
+        I prepared a structured analysis for ACCESS, an organisation at UFS, to support NPO registration and community impact.
+        Six group members contributed to the document, covering segments, value propositions, and operational considerations.
+      </p>
+      <ul>
+        <li><strong>Assessor:</strong> Dr E. E. Benedict</li>
+        <li><strong>Team size:</strong> 6</li>
+        <li><strong>Focus:</strong> NPO registration pathway, Business Model Canvas, stakeholder view</li>
+        <li><strong>Outputs:</strong> Business analysis report and slides</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Business Analysis</span><span class="tag">BMC</span><span class="tag">NPO</span>
+      </div>
+    </section>
+
+    <section class="card" id="ai-research">
+      <h3>AI Research Paper (IT Project Management)</h3>
+      <p>
+        I examined the role of AI in a software development context using “Apex” as a fictional company. The paper discusses
+        responsible integration, workflow changes, and project management implications.
+      </p>
+      <ul>
+        <li><strong>Module:</strong> IT Project Management</li>
+        <li><strong>Assessor:</strong> Dr R. Bezuidenhout</li>
+        <li><strong>Scope:</strong> AI’s role in software teams and delivery</li>
+        <li><strong>Outputs:</strong> Paper and optional slides</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">AI</span><span class="tag">Project Management</span><span class="tag">Software Engineering</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <small>© <span id="y"></span> Langelihle Malaza</small>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
+  </script>
+</body>
+</html>
