@@ -185,7 +185,7 @@ h3 {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1rem;
-  margin-bottom: 2rem; /* added spacing between stacked cards */
+  margin-bottom: 1.8rem; /* added spacing between stacked cards */
   transition: transform .08s ease, box-shadow .08s ease, border-color .08s ease, background .08s ease;
 }
 .card:hover {
