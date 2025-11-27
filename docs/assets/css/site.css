@@ -117,6 +117,41 @@ img {
   border-color: transparent;
 }
 
+/* Hamburger menu button */
+#menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#menu-toggle.open {
+  transform: rotate(90deg);
+}
+
+/* Responsive nav toggle */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+  .topbar nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1rem;
+  }
+  .topbar nav.open {
+    display: flex;
+  }
+  .topbar nav a {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
 /* Headings / hero */
 h1, h2, h3 {
   line-height: 1.2;
@@ -185,7 +220,7 @@ h3 {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1rem;
-  margin-bottom: 1rem; /* added spacing between stacked cards */
+  margin-bottom: 1rem;
   transition: transform .08s ease, box-shadow .08s ease, border-color .08s ease, background .08s ease;
 }
 .card:hover {
@@ -259,14 +294,4 @@ input, textarea {
 input:focus, textarea:focus {
   outline: 2px solid var(--accent-veil);
   border-color: var(--accent);
-}
-
-/* Mobile polish */
-@media (max-width: 540px) {
-  .topbar nav a {
-    padding: .4rem .55rem;
-  }
-  .grid {
-    gap: .9rem;
-  }
 }

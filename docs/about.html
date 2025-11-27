@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · About</title>
   <meta name="description" content="About and education.">
-  <link rel="stylesheet" href="assets/css/site.css?v=10"> 
+  <link rel="stylesheet" href="assets/css/site.css?v=10">
 </head>
 <body>
   <header class="topbar container">
     <a class="brand" href="./">Langelihle Malaza</a>
-    <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
-    <a href="about.html">About</a>
-    <a href="resume.html">Resume</a>
-    <a href="contact.html">Contact</a>
+    <button id="menu-toggle" aria-label="Toggle navigation">☰</button>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -38,7 +39,17 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => { if (a.getAttribute('href') === path) a.classList.add('active'); });
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
+    });
+
+    // Hamburger toggle
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
