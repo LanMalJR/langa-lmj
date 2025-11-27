@@ -142,7 +142,7 @@
       </div>
     </section>
 
-    <!-- Contact Form in Card -->
+    <!-- Contact Form in Matching Card -->
     <section class="card form-card">
       <h2>Send Me a Message</h2>
       <p class="muted">I'll get back to you as soon as possible</p>
@@ -165,6 +165,7 @@
   <footer class="footer container">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
@@ -176,6 +177,12 @@
     const nav = document.getElementById('main-nav');
     toggle.addEventListener('click', () => {
       nav.classList.toggle('open');
+    });
+
+    // Reset form when user comes back from submission
+    window.addEventListener('pageshow', function (event) {
+      const form = document.querySelector('.form-card form');
+      if (form) form.reset();
     });
   </script>
 </body>
