@@ -46,22 +46,23 @@
       }
     }
 
-    .card {
+    .card, .form-card {
       background-color: #111827;
       border-radius: 1rem;
       padding: 1.5rem;
       box-shadow: 0 0 0 1px #1e293b;
       color: #fff;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover, .form-card:hover {
+      box-shadow: 0 0 0 1px #3b82f6, 0 0 15px rgba(59, 130, 246, 0.3);
+      transform: translateY(-2px);
     }
 
     .form-card {
-      background-color: #111827;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 0 1px #1e293b;
       max-width: 700px;
       margin: 2rem auto;
-      color: #fff;
     }
 
     .form-card form {
@@ -143,9 +144,7 @@
         <h3>GitHub</h3>
         <p>Check out my repositories, contributions, and open-source work.</p>
         <a class="btn-secondary" href="https://github.com/LanMalJR" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387..."/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37...Z"/></svg>
           Visit Profile
         </a>
       </div>
@@ -154,9 +153,7 @@
         <h3>LinkedIn</h3>
         <p>Connect with me professionally and view my full work experience.</p>
         <a class="btn-secondary" href="https://www.linkedin.com/in/langa-lmj/" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.75 2.24 5 5..."/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0...Z"/></svg>
           Visit Profile
         </a>
       </div>
@@ -165,15 +162,12 @@
         <h3>Email</h3>
         <p>Send me a message directly by filling out the form below.</p>
         <a class="btn-secondary" href="#contact-form">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 4h16v16H4z"/>
-          </svg>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M2 3h20v18H2z"/></svg>
           Send an Email
         </a>
       </div>
     </section>
 
-    <!-- Contact Form -->
     <section id="contact-form" class="form-card">
       <h2>Send Me a Message</h2>
       <p class="muted">I'll get back to you as soon as possible</p>
@@ -210,7 +204,6 @@
       nav.classList.toggle('open');
     });
 
-    // Reset form when user comes back from submission
     window.addEventListener('pageshow', function () {
       const form = document.querySelector('.form-card form');
       if (form) form.reset();
