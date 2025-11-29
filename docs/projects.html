@@ -38,6 +38,49 @@
         border-top: 1px solid var(--border);
       }
     }
+
+    .project-card {
+      position: relative;
+      background-color: #111827;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 0 1px #1e293b;
+      color: #fff;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 0 0 1px #3b82f6, 0 0 15px rgba(59, 130, 246, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .status-pill {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: #f97316;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .status-pill::before {
+      content: '';
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: #facc15;
+      border-radius: 50%;
+    }
+
+    .muted {
+      color: #94a3b8;
+    }
   </style>
 </head>
 <body>
@@ -57,10 +100,22 @@
 
   <main class="container">
     <h1>Projects</h1>
+
+    <!-- Mazzel Stovel Banking App Card -->
+    <section class="project-card">
+      <div class="status-pill">Pending</div>
+      <h2>Mazzel Stovel Banking App</h2>
+      <p class="muted">
+        A digital-first banking application tailored for rural and underbanked communities. 
+        Designed with simplicity, offline capability, and fintech integrations for mobile devices.
+      </p>
+    </section>
+
+    <!-- Placeholder notice -->
     <section class="card">
       <p class="muted">
-        No public personal projects are available yet. This section is updated as new work is published. 
-        For collaboration or private demos, use the Contact page.
+        More public personal projects will be added soon. For private demos or collaboration,
+        feel free to get in touch via the Contact page.
       </p>
     </section>
   </main>
