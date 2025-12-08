@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/css/site.css?v=10">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
-    /* Horizontal “marquee” ticker for languages + tools */
+    /* Horizontal marquee ticker for languages + tools */
     .ticker {
       margin: 2rem 0 2.5rem;
       border-radius: var(--radius);
@@ -19,12 +19,24 @@
       overflow: hidden;
     }
 
+    .ticker-inner {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      animation: ticker-scroll 45s linear infinite;
+      animation-play-state: running;
+    }
+
+    /* Pause the scroll only when hovering over the ticker area */
+    .ticker:hover .ticker-inner {
+      animation-play-state: paused;
+    }
+
     .ticker-track {
       display: flex;
-      gap: 2.5rem;
-      padding: 0.75rem 1.25rem;
+      gap: 2.25rem;
+      padding: 0.75rem 1.5rem;
       white-space: nowrap;
-      animation: ticker-scroll 22s linear infinite;
     }
 
     .ticker-item {
@@ -48,10 +60,11 @@
     }
 
     @keyframes ticker-scroll {
-      from {
+      0% {
         transform: translateX(0);
       }
-      to {
+      100% {
+        /* Two identical tracks, so we move by half the total width */
         transform: translateX(-50%);
       }
     }
@@ -76,8 +89,9 @@
     <section class="hero">
       <h1>Building useful, well-engineered software.</h1>
       <p class="muted">
-        I'm currently focused on developing Virtual Reality–based education and training simulators.
-        I'm also exploring opportunities in Business Analysis. Alongside this, I'm learning C++ and working with embedded systems using Arduino.
+        I focus on developing Virtual Reality based education and training simulators, and I am
+        exploring opportunities in Business Analysis. Alongside this, I am learning C++ and
+        working with embedded systems using Arduino.
       </p>
       <p>
         <a class="btn" href="projects.html">View projects</a>
@@ -85,108 +99,40 @@
       </p>
     </section>
 
-    <!-- Languages + Tools “marquee” -->
+    <!-- Languages + Tools marquee -->
     <section class="ticker" aria-label="Languages and tools I work with">
-      <div class="ticker-track">
-        <!-- sequence 1 -->
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          C#
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Python
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          SQL
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          SAS
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          C++ (learning)
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Unity
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          XR Interaction Toolkit
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Git
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          GitHub
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          VS Code
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Blender
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Arduino
-        </span>
+      <div class="ticker-inner">
+        <!-- Track 1 -->
+        <div class="ticker-track">
+          <span class="ticker-item"><span class="ticker-dot"></span>C#</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Python</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>SQL</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>SAS</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>C++ (learning)</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Unity</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>XR Interaction Toolkit</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Git</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>GitHub</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>VS Code</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Blender</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Arduino</span>
+        </div>
 
-        <!-- duplicated sequence for seamless loop -->
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          C#
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Python
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          SQL
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          SAS
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          C++ (learning)
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Unity
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          XR Interaction Toolkit
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Git
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          GitHub
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          VS Code
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Blender
-        </span>
-        <span class="ticker-item">
-          <span class="ticker-dot"></span>
-          Arduino
-        </span>
+        <!-- Track 2: identical copy for seamless loop -->
+        <div class="ticker-track" aria-hidden="true">
+          <span class="ticker-item"><span class="ticker-dot"></span>C#</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Python</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>SQL</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>SAS</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>C++ (learning)</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Unity</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>XR Interaction Toolkit</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Git</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>GitHub</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>VS Code</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Blender</span>
+          <span class="ticker-item"><span class="ticker-dot"></span>Arduino</span>
+        </div>
       </div>
     </section>
 
@@ -202,14 +148,14 @@
         </article>
         <article class="card">
           <h3><a href="research.html">Eye-Tracking Research</a></h3>
-          <p>Experimental pipeline that analysed gaze patterns for interaction studies.</p>
+          <p>Experimental pipeline that analysed gaze patterns for interaction and usability studies.</p>
           <div class="tags">
             <span class="tag">Python</span><span class="tag">Analytics</span>
           </div>
         </article>
         <article class="card">
           <h3><a href="research.html#itsl">ITSL Group Project</a></h3>
-          <p>Team-built learning prototype with structured documentation and content architecture.</p>
+          <p>Team built learning prototype with structured documentation and content architecture.</p>
           <div class="tags">
             <span class="tag">Web</span><span class="tag">Documentation</span>
           </div>
@@ -228,7 +174,7 @@
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Hamburger toggle logic
+    // Hamburger toggle logic (consistent with other pages)
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
     toggle.addEventListener('click', () => {
