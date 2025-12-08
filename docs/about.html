@@ -7,6 +7,34 @@
   <meta name="description" content="About and education.">
   <link rel="stylesheet" href="assets/css/site.css?v=10">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <style>
+    .card {
+      background-color: #111827;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 0 1px #1e293b;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 0 1px #3b82f6, 0 0 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .muted {
+      color: #94a3b8;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+  </style>
 </head>
 <body>
   <header class="topbar container">
@@ -25,18 +53,31 @@
 
   <main class="container">
     <h1>About</h1>
-    <p>I specialise in building training-oriented interactive systems and reliable analytics pipelines.</p>
 
-    <h2>Education</h2>
-    <ul>
-      <li><strong>B. Computer Information Systems</strong>, University of the Free State</li>
-      <li><strong>B. Honours Computer Information Systems (Cum Laude)</strong>, University of the Free State</li>
-    </ul>
+    <section class="card">
+      <p class="muted">
+        I am Langelihle "Langa" Malaza, a B. Computer Information Systems (Honours) graduate with a strong interest in
+        software engineering, VR simulation and business analysis. I enjoy building interactive systems that solve real problems
+        from tractor driving simulators for agricultural training to AI-assisted tools for personal finance. My work combines code,
+        user-centred design and data, with a focus on clear structure and maintainable solutions.
+      </p>
+    </section>
+
+    <h2 style="margin-top: 2rem;">Education</h2>
+
+    <section class="card">
+      <ul>
+        <li><strong>🎓 B. Computer Information Systems</strong>, University of the Free State, <em>2024</em></li>
+        <li><strong>🎓 B. Honours Computer Information Systems (Cum Laude)</strong>, University of the Free State, <em>2025</em></li>
+
+      </ul>
+    </section>
   </main>
 
   <footer class="footer container">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
@@ -44,7 +85,6 @@
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Hamburger toggle
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
     toggle.addEventListener('click', () => {
