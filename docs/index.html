@@ -5,40 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Home</title>
   <meta name="description" content="Developer portfolio showcasing projects and research.">
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css?v=10">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
-  <style>
-    #menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text);
-    }
-
-    @media (max-width: 768px) {
-      #menu-toggle {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 0.5rem;
-        gap: 0;
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      nav a {
-        padding: 0.6rem 0;
-        border-top: 1px solid var(--border);
-      }
-    }
-  </style>
 </head>
 <body>
   <header class="topbar container">
@@ -58,8 +26,11 @@
   <main class="container">
     <section class="hero">
       <h1>Building useful, well-engineered software.</h1>
-      <p class="muted">I'm currently focused on developing Virtual Reality–based education and training simulators. 
-        I'm also exploring opportunities in Business Analysis. Alongside this, I'm learning C++ and working with embedded systems using Arduino.</p>
+      <p class="muted">
+        I'm currently focused on developing Virtual Reality–based education and training simulators.
+        I'm also exploring opportunities in Business Analysis. Alongside this, I'm learning C++ and
+        working with embedded systems using Arduino.
+      </p>
       <p>
         <a class="btn" href="projects.html">View projects</a>
         <a class="btn-secondary" href="https://github.com/LanMalJR" target="_blank" rel="noopener">GitHub</a>
@@ -76,6 +47,7 @@
             <span class="tag">C#</span><span class="tag">Unity</span><span class="tag">VR</span>
           </div>
         </article>
+
         <article class="card">
           <h3><a href="research.html">Eye-Tracking Research</a></h3>
           <p>Experimental pipeline that analysed gaze patterns for interaction studies.</p>
@@ -83,11 +55,12 @@
             <span class="tag">Python</span><span class="tag">Analytics</span>
           </div>
         </article>
+
         <article class="card">
-          <h3><a href="projects.html">ITSL Group Project</a></h3>
-          <p>Team-built system that showcased sprint execution and containerised deployment.</p>
+          <h3><a href="research.html#itsl">ITSL Group Project</a></h3>
+          <p>Team-built learning prototype with supporting documentation and structured delivery.</p>
           <div class="tags">
-            <span class="tag">C#</span><span class="tag">Docker</span>
+            <span class="tag">Web</span><span class="tag">Team</span><span class="tag">Documentation</span>
           </div>
         </article>
       </div>
@@ -97,18 +70,23 @@
   <footer class="footer container">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
+
   <script>
+    // Current year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Highlight active nav item
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Hamburger toggle logic
+    // Hamburger toggle
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
     toggle.addEventListener('click', () => {
       nav.classList.toggle('open');
+      toggle.classList.toggle('open');
     });
   </script>
 </body>
