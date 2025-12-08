@@ -282,7 +282,7 @@ p {
   color: var(--muted);
 }
 
-/* Forms (future contact form) */
+/* Forms (global) */
 input, textarea {
   width: 100%;
   background: var(--elev);
@@ -294,4 +294,118 @@ input, textarea {
 input:focus, textarea:focus {
   outline: 2px solid var(--accent-veil);
   border-color: var(--accent);
+}
+
+/* =========================================================
+   Shared components for Contact / Projects / Icons
+   ========================================================= */
+
+/* Buttons with icons (GitHub / LinkedIn / Email links) */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Small SVG icons inside buttons */
+.icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.2rem;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+/* Projects page cards with status pills */
+.project-card {
+  position: relative;
+  background: var(--elev);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+  transition: transform .08s ease, box-shadow .08s ease, border-color .08s ease, background .08s ease;
+}
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: color-mix(in oklab, var(--border) 70%, var(--accent));
+  background: linear-gradient(0deg, var(--accent-soft), var(--elev));
+}
+
+/* Status pill (Pending / Not started) */
+.status-pill {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #f97316;
+  color: #fff;
+}
+.status-pill::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #facc15;
+}
+
+/* Contact form card */
+.form-card {
+  background: var(--elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  box-shadow: 0 0 0 1px #1e293b;
+  max-width: 700px;
+  transition: transform .08s ease, box-shadow .08s ease, border-color .08s ease, background .08s ease;
+}
+.form-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: color-mix(in oklab, var(--border) 70%, var(--accent));
+  background: linear-gradient(0deg, var(--accent-soft), var(--elev));
+}
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-card input,
+.form-card textarea {
+  background-color: #1f2937;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #f9fafb;
+  width: 100%;
+}
+.form-card textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.form-card button {
+  background-color: #7aa2f7;
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.form-card button svg {
+  width: 1rem;
+  height: 1rem;
+  fill: #fff;
 }
