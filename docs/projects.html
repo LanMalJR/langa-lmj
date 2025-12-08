@@ -59,7 +59,6 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
-      background-color: #f97316;
       color: #fff;
       font-size: 0.75rem;
       font-weight: 600;
@@ -74,8 +73,23 @@
       content: '';
       width: 0.5rem;
       height: 0.5rem;
-      background-color: #facc15;
       border-radius: 50%;
+    }
+
+    .status-orange {
+      background-color: #f97316;
+    }
+
+    .status-orange::before {
+      background-color: #facc15;
+    }
+
+    .status-grey {
+      background-color: #6b7280;
+    }
+
+    .status-grey::before {
+      background-color: #9ca3af;
     }
 
     .muted {
@@ -103,11 +117,21 @@
 
     <!-- Mazzel Stovel Banking App Card -->
     <section class="project-card">
-      <div class="status-pill">Pending</div>
+      <div class="status-pill status-orange">Pending</div>
       <h2>Mazzel Stovel Banking Web-App</h2>
       <p class="muted">
         A digital-first banking application tailored for rural and underbanked communities. 
         Designed with simplicity, offline capability, and fintech integrations for mobile devices.
+      </p>
+    </section>
+
+    <!-- Rubik's Cube Mastery VR Card -->
+    <section class="project-card">
+      <div class="status-pill status-grey">Not Started</div>
+      <h2>Rubik’s Cube Mastery VR</h2>
+      <p class="muted">
+        A VR training experience designed to teach and visualise step-by-step cube-solving methods using immersive environments. 
+        Combines puzzle logic with interactive spatial feedback. Currently in concept phase.
       </p>
     </section>
 
