@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Research</title>
-  <meta name="description" content="Personal projects and case studies.">
+  <meta name="description" content="Research portfolio, both academic and independent.">
   <link rel="stylesheet" href="assets/css/site.css?v=10">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
@@ -38,6 +38,28 @@
         border-top: 1px solid var(--border);
       }
     }
+
+    .pill-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      background-color: #1f2937;
+      border: 1px solid #334155;
+      color: #f9fafb;
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+
+    .pill:hover {
+      border-color: #3b82f6;
+      color: #93c5fd;
+    }
   </style>
 </head>
 <body>
@@ -58,23 +80,28 @@
   <main class="container">
     <h1>Research</h1>
 
+    <div class="pill-buttons">
+      <a class="pill" href="#university-research">University Research</a>
+      <a class="pill" href="#independent-research">Independent Research</a>
+    </div>
+
     <section class="card">
-      <div class="tags">
-        <a class="tag" href="#projects">Research Projects</a>
-        <a class="tag" href="#papers">Papers & Reports</a>
-      </div>
+      <p class="muted">
+        This page contains both university-affiliated research conducted as part of academic programs, and independent research pursued outside institutional boundaries.
+      </p>
     </section>
+
+    <!-- University Research -->
+    <h2 id="university-research">University-Affiliated Research</h2>
 
     <section class="card">
       <h3>Disclaimer</h3>
       <p class="muted">
-        All projects and papers on this page fall under the University of the Free State. Intellectual property,
+        All projects and papers in this section fall under the University of the Free State. Intellectual property,
         data ownership, and reproduction rights may reside with UFS and the listed supervisors. This site presents
         short summaries for portfolio purposes only.
       </p>
     </section>
-
-    <h2 id="projects">Research Projects</h2>
 
     <section class="card" id="vr-tractor">
       <h3>Tractor Driving VR</h3>
@@ -131,8 +158,6 @@
       </div>
     </section>
 
-    <h2 id="papers">Papers & Reports</h2>
-
     <section class="card" id="access-analysis">
       <h3>Business Analysis for ACCESS</h3>
       <p>
@@ -165,6 +190,21 @@
       <div class="tags">
         <span class="tag">AI</span><span class="tag">Project Management</span><span class="tag">Software Engineering</span>
       </div>
+    </section>
+
+    <!-- Independent Research -->
+    <h2 id="independent-research">Independent Research</h2>
+
+    <section class="card">
+      <p class="muted">
+        Independent research involves work pursued outside formal academic programs. These often reflect personal interests,
+        ongoing learning, or freelance collaborations.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>Coming Soon</h3>
+      <p class="muted">Independent research write-ups and articles are currently being prepared and will appear here shortly.</p>
     </section>
   </main>
 
