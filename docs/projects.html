@@ -22,7 +22,7 @@
       background-color: #9ca3af;
     }
 
-    /* Pills for section navigation (same idea as research page) */
+    /* Pills for section navigation */
     .pill-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -61,7 +61,6 @@
   <main class="container">
     <h1>Projects</h1>
 
-    <!-- Intro card with pills inside -->
     <section class="card">
       <p class="muted">
         This page presents selected software engineering prototypes and future business analysis projects.
@@ -76,7 +75,6 @@
 
     <h2 id="software-projects">Software Engineering &amp; XR Prototypes</h2>
 
-    <!-- Mazzel Stovel Banking App Card -->
     <section class="project-card">
       <div class="status-pill status-orange">Pending</div>
       <h2>Mazzel Stovel Banking Web-App</h2>
@@ -86,7 +84,6 @@
       </p>
     </section>
 
-    <!-- Rubik's Cube Mastery AR Card -->
     <section class="project-card">
       <div class="status-pill status-grey">Not Started</div>
       <h2>Rubik's Cube Mastery AR</h2>
@@ -97,7 +94,6 @@
       </p>
     </section>
 
-    <!-- KIKO multimodal interface -->
     <section class="project-card">
       <div class="status-pill status-orange">Pending</div>
       <h2>KIKO</h2>
@@ -124,7 +120,6 @@
       </p>
     </section>
 
-    <!-- Placeholder notice -->
     <section class="card">
       <p class="muted">
         More public personal projects will be added over time. For private demos or collaboration,
@@ -137,45 +132,47 @@
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
 
- <script>
-  // Year in footer
-  const yearSpan = document.getElementById('y');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+  <script>
+    const yearSpan = document.getElementById('y');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // Highlight active nav item
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === path) a.classList.add('active');
-  });
-
-  // Hamburger: full-screen overlay on mobile
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('main-nav');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = !nav.classList.contains('open');
-
-      nav.classList.toggle('open', isOpen);
-      document.body.classList.toggle('nav-open', isOpen);
-      toggle.classList.toggle('open', isOpen);
-      toggle.textContent = isOpen ? '✕' : '☰';
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Close the overlay when a link is clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        toggle.classList.remove('open');
-        toggle.textContent = '☰';
-        toggle.setAttribute('aria-expanded', 'false');
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const body = document.body;
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('open');
+        if (!isOpen) {
+          nav.classList.add('open');
+          body.classList.add('nav-open');
+          toggle.classList.add('open');
+          toggle.textContent = '✕';
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        }
       });
-    });
-  }
-</script>
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>

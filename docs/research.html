@@ -49,7 +49,6 @@
   <main class="container">
     <h1>Research</h1>
 
-    <!-- Intro card with pills inside -->
     <section class="card">
       <p class="muted">
         This page contains both university-affiliated research conducted as part of academic programs, and independent
@@ -62,7 +61,6 @@
       </div>
     </section>
 
-    <!-- University Research -->
     <h2 id="university-research">University-Affiliated Research</h2>
 
     <section class="card">
@@ -163,7 +161,6 @@
       </div>
     </section>
 
-    <!-- Independent Research -->
     <h2 id="independent-research">Independent Research</h2>
 
     <section class="card">
@@ -182,45 +179,48 @@
   <footer class="footer container">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
+
   <script>
-  // Year in footer
-  const yearSpan = document.getElementById('y');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    const yearSpan = document.getElementById('y');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // Highlight active nav item
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === path) a.classList.add('active');
-  });
-
-  // Hamburger: full-screen overlay on mobile
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('main-nav');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = !nav.classList.contains('open');
-
-      nav.classList.toggle('open', isOpen);
-      document.body.classList.toggle('nav-open', isOpen);
-      toggle.classList.toggle('open', isOpen);
-      toggle.textContent = isOpen ? '✕' : '☰';
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Close the overlay when a link is clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        toggle.classList.remove('open');
-        toggle.textContent = '☰';
-        toggle.setAttribute('aria-expanded', 'false');
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const body = document.body;
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('open');
+        if (!isOpen) {
+          nav.classList.add('open');
+          body.classList.add('nav-open');
+          toggle.classList.add('open');
+          toggle.textContent = '✕';
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        }
       });
-    });
-  }
-</script>
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>

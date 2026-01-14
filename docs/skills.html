@@ -9,7 +9,6 @@
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
     /* Skills page layout */
-
     .skill-card {
       border-radius: 24px;
       padding: 1.5rem 1.4rem;
@@ -80,7 +79,6 @@
       focus on what I actively use or am currently learning.
     </p>
 
-    <!-- Programming languages -->
     <section class="card skill-card">
       <h2>Programming Languages</h2>
 
@@ -135,7 +133,6 @@
       </div>
     </section>
 
-    <!-- Tools & platforms -->
     <section class="card skill-card">
       <h2>Tools &amp; Platforms</h2>
 
@@ -190,7 +187,6 @@
       </div>
     </section>
 
-    <!-- Frameworks & libraries -->
     <section class="card skill-card">
       <h2>Frameworks &amp; Libraries</h2>
 
@@ -225,7 +221,6 @@
       </div>
     </section>
 
-    <!-- Domains & practices -->
     <section class="card skill-card">
       <h2>Domains &amp; Practices</h2>
 
@@ -296,44 +291,46 @@
   </footer>
 
   <script>
-  // Year in footer
-  const yearSpan = document.getElementById('y');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    const yearSpan = document.getElementById('y');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // Highlight active nav item
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === path) a.classList.add('active');
-  });
-
-  // Hamburger: full-screen overlay on mobile
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('main-nav');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = !nav.classList.contains('open');
-
-      nav.classList.toggle('open', isOpen);
-      document.body.classList.toggle('nav-open', isOpen);
-      toggle.classList.toggle('open', isOpen);
-      toggle.textContent = isOpen ? '✕' : '☰';
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Close the overlay when a link is clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        toggle.classList.remove('open');
-        toggle.textContent = '☰';
-        toggle.setAttribute('aria-expanded', 'false');
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const body = document.body;
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('open');
+        if (!isOpen) {
+          nav.classList.add('open');
+          body.classList.add('nav-open');
+          toggle.classList.add('open');
+          toggle.textContent = '✕';
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        }
       });
-    });
-  }
-</script>
+
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>

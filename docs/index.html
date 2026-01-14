@@ -36,7 +36,7 @@
       animation-play-state: running;
     }
 
-    /* Pause the scroll only when hovering over the ticker area (desktop / pointer devices) */
+    /* Pause the scroll only when hovering over the ticker area */
     .ticker:hover .ticker-inner {
       animation-play-state: paused;
     }
@@ -69,13 +69,8 @@
     }
 
     @keyframes ticker-scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        /* Two identical tracks, so we move by half the total width */
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* Mobile responsive styles */
@@ -165,54 +160,28 @@
         margin: 1.5rem 0 2rem;
         border-radius: 12px;
       }
-      
       .ticker-track {
         gap: 1.1rem;
         padding: 0.55rem 0.8rem;
       }
-      
       .ticker-item {
         font-size: 0.78rem;
         padding: 0.2rem 0.7rem;
       }
-
-      .hero h1 {
-        font-size: 1.5rem !important;
-      }
-
-      .hero p {
-        font-size: 0.9rem !important;
-      }
-
-      .card h3 {
-        font-size: 1rem !important;
-      }
-
-      .card p {
-        font-size: 0.85rem !important;
-      }
+      .hero h1 { font-size: 1.5rem !important; }
+      .hero p { font-size: 0.9rem !important; }
+      .card h3 { font-size: 1rem !important; }
+      .card p { font-size: 0.85rem !important; }
     }
 
-    /* Extra small screens */
     @media (max-width: 375px) {
-      .container {
-        padding: 0.75rem !important;
-      }
-
-      .hero h1 {
-        font-size: 1.35rem !important;
-      }
-
-      .btn,
-      .btn-secondary {
-        padding: 0.65rem 1.25rem !important;
-        font-size: 0.9rem !important;
-      }
+      .container { padding: 0.75rem !important; }
+      .hero h1 { font-size: 1.35rem !important; }
+      .btn, .btn-secondary { padding: 0.65rem 1.25rem !important; font-size: 0.9rem !important; }
     }
   </style>
 </head>
 <body>
-  <!-- header: no container, so the bar spans full width and mobile overlay works -->
   <header class="topbar">
     <a class="brand" href="index.html">Langelihle Malaza</a>
     <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -240,10 +209,8 @@
       </p>
     </section>
 
-    <!-- Languages + Tools marquee -->
     <section class="ticker" aria-label="Languages and tools I work with">
       <div class="ticker-inner">
-        <!-- Track 1 -->
         <div class="ticker-track">
           <span class="ticker-item"><span class="ticker-dot"></span>C#</span>
           <span class="ticker-item"><span class="ticker-dot"></span>Python</span>
@@ -259,7 +226,6 @@
           <span class="ticker-item"><span class="ticker-dot"></span>Arduino</span>
         </div>
 
-        <!-- Track 2: identical copy for seamless loop -->
         <div class="ticker-track" aria-hidden="true">
           <span class="ticker-item"><span class="ticker-dot"></span>C#</span>
           <span class="ticker-item"><span class="ticker-dot"></span>Python</span>
@@ -310,38 +276,40 @@
   </footer>
 
   <script>
-    // Year in footer
     const yearSpan = document.getElementById('y');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // Highlight active nav item
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Hamburger: full-screen overlay on mobile
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
+    const body = document.body;
 
     if (toggle && nav) {
       toggle.addEventListener('click', () => {
-        const isOpen = !nav.classList.contains('open');
-
-        nav.classList.toggle('open', isOpen);
-        document.body.classList.toggle('nav-open', isOpen);
-        toggle.classList.toggle('open', isOpen);
-        toggle.textContent = isOpen ? '✕' : '☰';
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        const isOpen = nav.classList.contains('open');
+        if (!isOpen) {
+          nav.classList.add('open');
+          body.classList.add('nav-open');
+          toggle.classList.add('open');
+          toggle.textContent = '✕';
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        }
       });
 
-      // Close the overlay when a link is clicked
       nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           nav.classList.remove('open');
-          document.body.classList.remove('nav-open');
+          body.classList.remove('nav-open');
           toggle.classList.remove('open');
           toggle.textContent = '☰';
           toggle.setAttribute('aria-expanded', 'false');

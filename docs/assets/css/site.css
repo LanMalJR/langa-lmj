@@ -155,7 +155,7 @@ body.nav-open {
   border-color: transparent;
 }
 
-/* Hamburger button (shown only on small screens) */
+/* Hamburger button (Desktop default hidden) */
 #menu-toggle {
   display: none;
   font-size: 1.7rem;
@@ -171,161 +171,96 @@ body.nav-open {
 }
 
 /* ================================
-   Mobile full-screen menu - NEW DESIGN
+   Mobile & Tablet Full-Screen Menu
+   Updated: 80% Opacity + Blur
    ================================ */
-@media (max-width: 640px) {
-  /* Show burger on mobile */
+@media (max-width: 768px) {
+  
+  /* 1. Toggle Button Behavior */
   #menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 60;
+    z-index: 1001; /* Critical: Must be higher than nav overlay */
   }
 
-  /* Turn normal desktop nav into a full-screen overlay with gradient background */
-  .topbar nav {
+  /* When menu is open, button becomes "X" and fixes to corner */
+  #menu-toggle.open {
+    transform: rotate(90deg);
     position: fixed;
-    inset: 0;
+    top: 1.2rem;
+    right: 1.2rem;
+    color: #ffffff; /* Force white on dark overlay */
+  }
+
+  /* 2. Navigation Overlay (The Window Pane) */
+  .topbar nav {
+    /* Layout positioning */
     display: none;
+    position: fixed;
+    inset: 0; /* Top, Right, Bottom, Left = 0 */
+    width: 100vw;
+    height: 100vh;
+    
+    /* Center content vertically and horizontally */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3.5rem;
+    gap: 2.5rem;
     padding: 0 2rem;
-    /* Multi-layered gradient background matching the screenshot style */
-    background: 
-      radial-gradient(circle at 30% 40%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 70% 60%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
-      linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e293b 100%);
-    backdrop-filter: blur(20px);
-    z-index: 50;
-    animation: fadeIn 0.3s ease;
+    
+    /* Visuals: 80% Opacity Gradient + Blur */
+    /* Changed opacity to 0.8 (80%) */
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 27, 75, 0.8) 100%);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    
+    /* Animation setup */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* State: Open */
+  .topbar nav.open {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-out forwards;
   }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
   }
 
-  /* When open, show overlay */
-  .topbar nav.open {
-    display: flex;
-  }
-
-  /* Menu links in overlay - Large centered text */
+  /* 3. Links Style */
   .topbar nav a {
-    border: none;
-    background: none;
-    padding: 0;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    color: #f1f5f9;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
+    background: transparent;
+    border: none;
+    padding: 0;
     text-align: center;
-    letter-spacing: -0.02em;
     transition: all 0.2s ease;
-    position: relative;
   }
 
   .topbar nav a:hover {
     color: #ffffff;
-    transform: scale(1.05);
-    text-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
+    transform: scale(1.1);
+    background: transparent;
   }
 
   .topbar nav a.active {
-    color: var(--accent);
-    text-shadow: 0 0 25px rgba(96, 165, 250, 0.8);
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
   }
 
-  /* Position the close (X) icon top-right when open */
-  body.nav-open #menu-toggle {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.2rem;
-    font-size: 2rem;
-    color: #f1f5f9;
-  }
-
-  #menu-toggle.open {
-    transform: rotate(90deg);
-  }
-
-  /* Hide horizontal desktop layout while overlay is present */
+  /* Hide header bar structure when overlay is active */
   .topbar {
     justify-content: space-between;
-  }
-}
-
-/* Tablet - slightly larger menu */
-@media (min-width: 641px) and (max-width: 768px) {
-  #menu-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 60;
-  }
-
-  .topbar nav {
-    position: fixed;
-    inset: 0;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    padding: 0 2rem;
-    background: 
-      radial-gradient(circle at 30% 40%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 70% 60%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
-      linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e293b 100%);
-    backdrop-filter: blur(20px);
-    z-index: 50;
-  }
-
-  .topbar nav.open {
-    display: flex;
-  }
-
-  .topbar nav a {
-    border: none;
-    background: none;
-    padding: 0;
-    font-size: 2rem;
-    font-weight: 800;
-    color: #f1f5f9;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.2s ease;
-  }
-
-  .topbar nav a:hover {
-    color: #ffffff;
-    transform: scale(1.05);
-    text-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
-  }
-
-  .topbar nav a.active {
-    color: var(--accent);
-    text-shadow: 0 0 25px rgba(96, 165, 250, 0.8);
-  }
-
-  body.nav-open #menu-toggle {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.2rem;
-    font-size: 2rem;
-    color: #f1f5f9;
-  }
-
-  #menu-toggle.open {
-    transform: rotate(90deg);
   }
 }
 

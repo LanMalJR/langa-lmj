@@ -25,7 +25,6 @@
   <main class="container">
     <h1>About</h1>
 
-    <!-- Profile / intro -->
     <section class="card">
       <h2>Profile</h2>
       <p class="muted">
@@ -35,7 +34,6 @@
       </p>
     </section>
 
-    <!-- Interests & how I work -->
     <section>
       <div class="grid">
         <article class="card">
@@ -65,7 +63,6 @@
       </div>
     </section>
 
-    <!-- Education -->
     <h2>Education</h2>
     <section class="card">
       <ul>
@@ -80,45 +77,55 @@
   </footer>
 
   <script>
-  // Year in footer
-  const yearSpan = document.getElementById('y');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    // Year in footer
+    const yearSpan = document.getElementById('y');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
 
-  // Highlight active nav item
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === path) a.classList.add('active');
-  });
-
-  // Hamburger: full-screen overlay on mobile
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('main-nav');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = !nav.classList.contains('open');
-
-      nav.classList.toggle('open', isOpen);
-      document.body.classList.toggle('nav-open', isOpen);
-      toggle.classList.toggle('open', isOpen);
-      toggle.textContent = isOpen ? '✕' : '☰';
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    // Highlight active nav item
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Close the overlay when a link is clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        toggle.classList.remove('open');
-        toggle.textContent = '☰';
-        toggle.setAttribute('aria-expanded', 'false');
+    // Mobile Navigation Logic
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const body = document.body;
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('open');
+        
+        if (!isOpen) {
+          // Open
+          nav.classList.add('open');
+          body.classList.add('nav-open');
+          toggle.classList.add('open');
+          toggle.textContent = '✕';
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          // Close
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        }
       });
-    });
-  }
-</script>
 
+      // Close menu when clicking a link
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
