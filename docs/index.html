@@ -167,13 +167,16 @@
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
   <script>
+    // Set current year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Highlight active nav item
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Hamburger toggle logic (consistent with other pages)
+    // Hamburger toggle
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
     toggle.addEventListener('click', () => {

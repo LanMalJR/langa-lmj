@@ -21,6 +21,27 @@
     .status-grey::before {
       background-color: #9ca3af;
     }
+
+    /* Pills for section navigation (same idea as research page) */
+    .pill-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .pill {
+      padding: 0.4rem 0.95rem;
+      border-radius: 9999px;
+      background-color: #1f2937;
+      border: 1px solid #334155;
+      color: #f9fafb;
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+    .pill:hover {
+      border-color: #3b82f6;
+      color: #93c5fd;
+    }
   </style>
 </head>
 <body>
@@ -40,6 +61,21 @@
   <main class="container">
     <h1>Projects</h1>
 
+    <!-- Intro card with pills inside -->
+    <section class="card">
+      <p class="muted">
+        This page presents selected software engineering prototypes and future business analysis projects.
+        Technical work focuses on XR, interaction design, and fintech concepts, while the business analysis
+        stream will highlight process, documentation, and stakeholder work.
+      </p>
+      <div class="pill-buttons">
+        <a class="pill" href="#software-projects">Software &amp; XR Projects</a>
+        <a class="pill" href="#ba-projects">Business Analysis Projects</a>
+      </div>
+    </section>
+
+    <h2 id="software-projects">Software Engineering &amp; XR Prototypes</h2>
+
     <!-- Mazzel Stovel Banking App Card -->
     <section class="project-card">
       <div class="status-pill status-orange">Pending</div>
@@ -55,27 +91,43 @@
       <div class="status-pill status-grey">Not Started</div>
       <h2>Rubik’s Cube Mastery AR</h2>
       <p class="muted">
-        An Augmented Reality (AR) training experience designed to teach and visualise step-by-step cube-solving methods in the user’s real environment. 
-        Combines puzzle logic with overlayed guidance and interactive spatial feedback. Currently in concept phase.
+        An Augmented Reality (AR) training experience designed to teach and visualise step-by-step cube-solving methods 
+        in the user’s real environment. Combines puzzle logic with overlayed guidance and interactive spatial feedback.
+        Currently in concept phase.
       </p>
     </section>
 
-    <!-- Hand-Tracking Remote Control Interface Card -->
+    <!-- KIKO multimodal interface -->
     <section class="project-card">
       <div class="status-pill status-orange">Pending</div>
       <h2>KIKO</h2>
-      <h3>Hand-Tracking, Voice & Mobile Remote Control Interface</h3>
+      <h3>Hand-Tracking, Voice &amp; Mobile Remote Control Interface</h3>
       <p class="muted">
         A multimodal control prototype that combines hand tracking, voice commands, and a companion mobile phone as a remote. 
-        The goal is to explore natural ways to switch modes, adjust settings, and trigger actions without relying solely on a physical controller. 
+        The goal was to explore natural ways to switch modes, adjust settings, and trigger actions without relying solely on a physical controller. 
         Currently in early design and experimentation.
+      </p>
+    </section>
+
+    <h2 id="ba-projects">Business Analysis &amp; Process Work</h2>
+
+    <section class="card">
+      <p class="muted">
+        Business analysis and process-focused project write-ups are being prepared and will appear here soon.
+        These will cover work such as stakeholder mapping, Business Model Canvas development, requirements
+        elicitation, and documentation for community organisations and learning programs.
+      </p>
+      <p class="muted">
+        For now, brief summaries of some related work can be found on the 
+        <a href="research.html#access-analysis">Business Analysis for ACCESS</a> and 
+        <a href="research.html#itsl">ITSL Group Project</a> entries on the Research page.
       </p>
     </section>
 
     <!-- Placeholder notice -->
     <section class="card">
       <p class="muted">
-        More public personal projects will be added soon. For private demos or collaboration,
+        More public personal projects will be added over time. For private demos or collaboration,
         feel free to get in touch via the Contact page.
       </p>
     </section>
@@ -86,17 +138,26 @@
   </footer>
 
   <script>
+    // Set current year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Highlight active nav item
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
+    // Hamburger toggle with body scroll lock
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        toggle.classList.toggle('open');
+        document.body.classList.toggle('nav-open');
+      });
+    }
   </script>
 </body>
 </html>

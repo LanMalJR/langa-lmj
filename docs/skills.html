@@ -8,103 +8,53 @@
   <link rel="stylesheet" href="assets/css/site.css?v=10">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
-    /* Skills layout */
-    .skills-intro {
-      max-width: 60rem;
+    /* Skills page layout */
+
+    .skill-card {
+      border-radius: 24px;
+      padding: 1.5rem 1.4rem;
+      margin-bottom: 1.5rem;
     }
 
-    .skill-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+    .skill-card h2 {
+      margin-bottom: 0.75rem;
     }
 
-    .skill-table th,
-    .skill-table td {
-      padding: 0.4rem 0.35rem;
-      text-align: left;
-      vertical-align: top;
+    .skill-row {
+      padding: 0.85rem 0;
+      border-top: 1px solid var(--border);
     }
 
-    .skill-table th {
-      color: var(--muted);
-      font-weight: 600;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+    .skill-row:first-of-type {
+      margin-top: 0.3rem;
     }
 
-    .skill-table tbody tr + tr td {
-      border-top: 1px solid rgba(148, 163, 184, 0.25);
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap; /* allows wrapping on very narrow phones, but keeps them on one row when possible */
     }
 
     .skill-name {
       font-weight: 600;
+      font-size: 1rem;
     }
 
-    .skill-level {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.15rem 0.55rem;
+    .level-pill {
       border-radius: 9999px;
-      border: 1px solid var(--border);
+      border: 1px solid #3b82f6;
+      background: rgba(37, 99, 235, 0.12);
+      color: #bfdbfe;
+      padding: 0.15rem 0.75rem;
       font-size: 0.78rem;
-      text-transform: none;
-      letter-spacing: 0.02em;
+      font-weight: 500;
       white-space: nowrap;
     }
 
-    .skill-level.proficient {
-      background: var(--accent-soft);
-      border-color: color-mix(in oklab, var(--border) 60%, var(--accent));
-      color: var(--text);
-    }
-
-    .skill-level.comfortable {
-      background: rgba(15, 23, 42, 0.7);
-    }
-
-    .skill-level.learning {
-      background: rgba(15, 23, 42, 0.7);
-      border-style: dashed;
-    }
-
     .skill-notes {
-      color: var(--muted);
-    }
-
-    @media (max-width: 640px) {
-      .skill-table thead {
-        display: none;
-      }
-
-      .skill-table,
-      .skill-table tbody,
-      .skill-table tr,
-      .skill-table td {
-        display: block;
-        width: 100%;
-      }
-
-      .skill-table tr {
-        padding: 0.5rem 0;
-      }
-
-      .skill-table td {
-        border-top: none !important;
-        padding: 0.15rem 0;
-      }
-
-      .skill-table td:nth-child(1) {
-        margin-top: 0.4rem;
-      }
-
-      .skill-table td:nth-child(2),
-      .skill-table td:nth-child(3) {
-        font-size: 0.85rem;
-      }
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -124,182 +74,218 @@
 
   <main class="container">
     <h1>Skills</h1>
-    <p class="muted skills-intro">
-      These are the core skills I apply on projects, research, and prototypes. 
-      Levels are self assessed and focus on what I actively use or am currently learning.
+    <p class="muted">
+      These are the core skills I apply on projects, research, and prototypes. Levels are self-assessed and
+      focus on what I actively use or am currently learning.
     </p>
 
-    <!-- Programming Languages -->
-    <section class="card">
-      <h3>Programming Languages</h3>
-      <table class="skill-table">
-        <thead>
-          <tr>
-            <th>Language</th>
-            <th>Level</th>
-            <th>Experience & usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="skill-name">C#</span></td>
-            <td><span class="skill-level proficient">Proficient</span></td>
-            <td class="skill-notes">
-              Multi year use as my main language for Unity VR simulators, coursework, and small utilities.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">Python</span></td>
-            <td><span class="skill-level proficient">Proficient</span></td>
-            <td class="skill-notes">
-              Used for analytics, data processing, and the Tobii eye tracking research pipeline.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">SQL</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Queries for reporting, analysis, and coursework assignments working with relational data.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">SAS</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Used in analytics modules for statistical analysis, data wrangling, and basic modelling.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">C++</span></td>
-            <td><span class="skill-level learning">Learning</span></td>
-            <td class="skill-notes">
-              Early stage, roughly a few months; focused on core syntax, memory concepts, 
-              and problem solving for lower level systems and future simulation work.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Programming languages -->
+    <section class="card skill-card">
+      <h2>Programming Languages</h2>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">C#</span>
+          <span class="level-pill">Proficient</span>
+        </div>
+        <p class="muted skill-notes">
+          Multi-year use as my main language for Unity VR simulators, coursework, and small utilities.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Python</span>
+          <span class="level-pill">Proficient</span>
+        </div>
+        <p class="muted skill-notes">
+          Used for analytics, data processing, and the Tobii eye-tracking research pipeline.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">SQL</span>
+          <span class="level-pill">Comfortable</span>
+        </div>
+        <p class="muted skill-notes">
+          Queries for reporting, analysis, and coursework assignments working with relational data.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">SAS</span>
+          <span class="level-pill">Comfortable</span>
+        </div>
+        <p class="muted skill-notes">
+          Statistical analysis and data manipulation for academic modules and small research tasks.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">C++</span>
+          <span class="level-pill">Learning</span>
+        </div>
+        <p class="muted skill-notes">
+          Early-stage learning focused on fundamentals for systems programming and performance-sensitive code.
+        </p>
+      </div>
     </section>
 
-    <!-- Tools & Engines -->
-    <section class="card">
-      <h3>Tools and Engines</h3>
-      <table class="skill-table">
-        <thead>
-          <tr>
-            <th>Tool</th>
-            <th>Level</th>
-            <th>Experience & usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="skill-name">Unity</span></td>
-            <td><span class="skill-level proficient">Proficient</span></td>
-            <td class="skill-notes">
-              Primary engine for the VR tractor driving simulator and other interactive prototypes, 
-              including physics, UI, and XR integration.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">Git / GitHub</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Daily use for version control, branching, and collaborating on university and personal projects.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">VS Code & Visual Studio</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Main editors for C#, Python, web projects, and general development workflows.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">Jupyter</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Used for exploratory data analysis, experiments, and small analytics notebooks.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">Blender</span></td>
-            <td><span class="skill-level learning">Learning</span></td>
-            <td class="skill-notes">
-              Roughly ten months of basic modelling, animation, and rigging to support VR scenes 
-              and prototype assets.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">Arduino / Embedded Tooling</span></td>
-            <td><span class="skill-level learning">Learning</span></td>
-            <td class="skill-notes">
-              Early experiments with embedded systems and Arduino based prototypes to connect 
-              hardware with interactive software.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Tools & platforms -->
+    <section class="card skill-card">
+      <h2>Tools &amp; Platforms</h2>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Git / GitHub</span>
+          <span class="level-pill">Proficient</span>
+        </div>
+        <p class="muted skill-notes">
+          Daily use for version control, branching, and collaboration on academic and personal projects.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">VS Code &amp; Visual Studio</span>
+          <span class="level-pill">Proficient</span>
+        </div>
+        <p class="muted skill-notes">
+          Main IDEs for C#, Python, and web projects, with debugging, extensions, and task integration.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Unity Editor</span>
+          <span class="level-pill">Proficient</span>
+        </div>
+        <p class="muted skill-notes">
+          Used for building VR tractor simulators, XR interaction prototypes, and scene/prefab management.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Blender</span>
+          <span class="level-pill">Learning</span>
+        </div>
+        <p class="muted skill-notes">
+          Basic modelling, animation, and rigging for VR props and environment assets.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Arduino / Embedded Tools</span>
+          <span class="level-pill">Learning</span>
+        </div>
+        <p class="muted skill-notes">
+          Early experiments connecting sensors and microcontrollers to software interfaces and prototypes.
+        </p>
+      </div>
     </section>
 
-    <!-- Frameworks and Libraries -->
-    <section class="card">
-      <h3>Frameworks and Libraries</h3>
-      <table class="skill-table">
-        <thead>
-          <tr>
-            <th>Framework / Library</th>
-            <th>Level</th>
-            <th>Experience & usage</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="skill-name">XR Interaction Toolkit</span></td>
-            <td><span class="skill-level proficient">Proficient</span></td>
-            <td class="skill-notes">
-              Core toolkit for VR interactions in Unity, including locomotion, direct and ray interaction, 
-              grabbing, and UI in the tractor simulator.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">.NET</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Experience with .NET based C# projects, structuring applications and working with libraries.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">pandas</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Used for cleaning, transforming, and analysing datasets in Python based coursework and research.
-            </td>
-          </tr>
-          <tr>
-            <td><span class="skill-name">NumPy</span></td>
-            <td><span class="skill-level comfortable">Comfortable</span></td>
-            <td class="skill-notes">
-              Used alongside pandas for numerical work, metrics, and basic linear algebra in analytics tasks.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Frameworks & libraries -->
+    <section class="card skill-card">
+      <h2>Frameworks &amp; Libraries</h2>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Unity XR Interaction Toolkit</span>
+          <span class="level-pill">Proficient</span>
+        </div>
+        <p class="muted skill-notes">
+          Used for interaction design, locomotion systems, grab mechanics, and UI in VR tractor training.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">.NET</span>
+          <span class="level-pill">Comfortable</span>
+        </div>
+        <p class="muted skill-notes">
+          Experience with C#/.NET ecosystem for console utilities, data processing, and structured projects.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">pandas / NumPy</span>
+          <span class="level-pill">Comfortable</span>
+        </div>
+        <p class="muted skill-notes">
+          Data wrangling, basic statistics, and tabular reporting for research and coursework.
+        </p>
+      </div>
     </section>
 
-    <!-- Domains -->
-    <section class="card">
-      <h3>Domains</h3>
-      <p class="muted" style="margin-bottom: 0.6rem;">
-        Areas where I have applied the skills above in real coursework, research, or prototypes.
-      </p>
-      <div class="tags">
-        <span class="tag">VR Simulation and Training</span>
-        <span class="tag">Augmented Reality (early)</span>
-        <span class="tag">Human Computer Interaction (HCI)</span>
-        <span class="tag">Data Analytics</span>
-        <span class="tag">Business Analysis</span>
-        <span class="tag">Personal Finance and Fintech Concepts</span>
+    <!-- Domains & practices -->
+    <section class="card skill-card">
+      <h2>Domains &amp; Practices</h2>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">VR Simulation &amp; Training</span>
+          <span class="level-pill">Core</span>
+        </div>
+        <p class="muted skill-notes">
+          End-to-end VR prototype work, including interaction design, safety-focused tasks, and evaluation plans.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Mixed Reality (MR / AR)</span>
+          <span class="level-pill">Early</span>
+        </div>
+        <p class="muted skill-notes">
+          Concept work for Rubik’s Cube training and multimodal interfaces on devices like the Meta Quest 3.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Human–Computer Interaction</span>
+          <span class="level-pill">Comfortable</span>
+        </div>
+        <p class="muted skill-notes">
+          Eye-tracking studies, UX research, and user-centred evaluation methods applied in academic modules.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Data Analytics &amp; Reporting</span>
+          <span class="level-pill">Comfortable</span>
+        </div>
+        <p class="muted skill-notes">
+          Turning raw data into summaries and insights for assignments, research, and prototype metrics.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Business Analysis &amp; Requirements</span>
+          <span class="level-pill">Developing</span>
+        </div>
+        <p class="muted skill-notes">
+          Process mapping, stakeholder analysis, and documentation for community organisations and learning programs.
+        </p>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">Personal Finance / Fintech Concepts</span>
+          <span class="level-pill">Developing</span>
+        </div>
+        <p class="muted skill-notes">
+          Interest in tools that support savings, budgeting, and access to financial services for underbanked users.
+        </p>
       </div>
     </section>
   </main>
@@ -307,19 +293,28 @@
   <footer class="footer container">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
+
   <script>
+    // Set current year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Highlight active nav item
     const path = location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
+    // Hamburger toggle with body scroll lock
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      toggle.classList.toggle('open');
-    });
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        toggle.classList.toggle('open');
+        document.body.classList.toggle('nav-open');
+      });
+    }
   </script>
 </body>
 </html>
