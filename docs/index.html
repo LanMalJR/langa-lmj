@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Home</title>
   <meta name="description" content="Developer portfolio showcasing projects and research.">
-  <link rel="stylesheet" href="assets/css/site.css?v=10">
+  <link rel="stylesheet" href="assets/css/site.css?v=11">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
+    /* Kill any horizontal scroll (ticker animation etc.) */
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     /* Horizontal marquee ticker for languages + tools */
     .ticker {
       margin: 2rem 0 2.5rem;
@@ -17,6 +24,8 @@
         radial-gradient(600px 200px at 0% 0%, var(--accent-soft), transparent 60%),
         var(--elev);
       overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .ticker-inner {
@@ -27,7 +36,7 @@
       animation-play-state: running;
     }
 
-    /* Pause the scroll only when hovering over the ticker area */
+    /* Pause the scroll only when hovering over the ticker area (desktop / pointer devices) */
     .ticker:hover .ticker-inner {
       animation-play-state: paused;
     }
@@ -68,12 +77,145 @@
         transform: translateX(-50%);
       }
     }
+
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem !important;
+        max-width: 100% !important;
+      }
+
+      .hero {
+        padding: 1.5rem 0 !important;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .hero p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .hero p:last-of-type {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+
+      .btn,
+      .btn-secondary {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.95rem !important;
+      }
+
+      section h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      .card {
+        padding: 1.25rem !important;
+      }
+
+      .card h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+
+      .card p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+      }
+
+      .tags {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        margin-top: 0.75rem !important;
+      }
+
+      .tag {
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.7rem !important;
+      }
+
+      .footer {
+        padding: 1.5rem 1rem !important;
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Tighter marquee + better fit on small phones */
+    @media (max-width: 640px) {
+      .ticker {
+        margin: 1.5rem 0 2rem;
+        border-radius: 12px;
+      }
+      
+      .ticker-track {
+        gap: 1.1rem;
+        padding: 0.55rem 0.8rem;
+      }
+      
+      .ticker-item {
+        font-size: 0.78rem;
+        padding: 0.2rem 0.7rem;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem !important;
+      }
+
+      .hero p {
+        font-size: 0.9rem !important;
+      }
+
+      .card h3 {
+        font-size: 1rem !important;
+      }
+
+      .card p {
+        font-size: 0.85rem !important;
+      }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 375px) {
+      .container {
+        padding: 0.75rem !important;
+      }
+
+      .hero h1 {
+        font-size: 1.35rem !important;
+      }
+
+      .btn,
+      .btn-secondary {
+        padding: 0.65rem 1.25rem !important;
+        font-size: 0.9rem !important;
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="topbar container">
+  <!-- header: no container, so the bar spans full width and mobile overlay works -->
+  <header class="topbar">
     <a class="brand" href="index.html">Langelihle Malaza</a>
-    <button id="menu-toggle" aria-label="Toggle navigation">☰</button>
+    <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <nav id="main-nav">
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
@@ -163,45 +305,49 @@
     </section>
   </main>
 
+  <footer class="footer container">
+    <small>© <span id="y"></span> Langelihle Malaza</small>
+  </footer>
+
   <script>
-  // Year in footer
-  const yearSpan = document.getElementById('y');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    // Year in footer
+    const yearSpan = document.getElementById('y');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
 
-  // Highlight active nav item
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.getAttribute('href') === path) a.classList.add('active');
-  });
-
-  // Hamburger: full-screen overlay on mobile
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('main-nav');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = !nav.classList.contains('open');
-
-      nav.classList.toggle('open', isOpen);
-      document.body.classList.toggle('nav-open', isOpen);
-      toggle.classList.toggle('open', isOpen);
-      toggle.textContent = isOpen ? '✕' : '☰';
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    // Highlight active nav item
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === path) a.classList.add('active');
     });
 
-    // Close the overlay when a link is clicked
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        document.body.classList.remove('nav-open');
-        toggle.classList.remove('open');
-        toggle.textContent = '☰';
-        toggle.setAttribute('aria-expanded', 'false');
+    // Hamburger: full-screen overlay on mobile
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = !nav.classList.contains('open');
+
+        nav.classList.toggle('open', isOpen);
+        document.body.classList.toggle('nav-open', isOpen);
+        toggle.classList.toggle('open', isOpen);
+        toggle.textContent = isOpen ? '✕' : '☰';
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
-    });
-  }
-</script>
+
+      // Close the overlay when a link is clicked
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          document.body.classList.remove('nav-open');
+          toggle.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
