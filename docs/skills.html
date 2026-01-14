@@ -27,13 +27,14 @@
 
     .skill-row:first-of-type {
       margin-top: 0.3rem;
+      border-top: none; /* no divider at the very top */
     }
 
     .skill-header {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      flex-wrap: wrap; /* allows wrapping on very narrow phones, but keeps them on one row when possible */
+      flex-wrap: wrap; /* keeps name + pill on one line when possible, wraps on very small phones */
     }
 
     .skill-name {
@@ -59,7 +60,8 @@
   </style>
 </head>
 <body>
-  <header class="topbar container">
+  <!-- header: NO container here so it spans full width -->
+  <header class="topbar">
     <a class="brand" href="./">Langelihle Malaza</a>
     <button id="menu-toggle" aria-label="Toggle navigation">☰</button>
     <nav id="main-nav">
@@ -295,26 +297,44 @@
   </footer>
 
   <script>
-    // Set current year
-    document.getElementById('y').textContent = new Date().getFullYear();
+  // Year in footer
+  const yearSpan = document.getElementById('y');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-    // Highlight active nav item
-    const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => {
-      if (a.getAttribute('href') === path) a.classList.add('active');
+  // Highlight active nav item
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('nav a').forEach(a => {
+    if (a.getAttribute('href') === path) a.classList.add('active');
+  });
+
+  // Hamburger: full-screen overlay on mobile
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('main-nav');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = !nav.classList.contains('open');
+
+      nav.classList.toggle('open', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
+      toggle.classList.toggle('open', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Hamburger toggle with body scroll lock
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        toggle.classList.toggle('open');
-        document.body.classList.toggle('nav-open');
+    // Close the overlay when a link is clicked
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        toggle.classList.remove('open');
+        toggle.textContent = '☰';
+        toggle.setAttribute('aria-expanded', 'false');
       });
-    }
-  </script>
+    });
+  }
+</script>
 </body>
 </html>

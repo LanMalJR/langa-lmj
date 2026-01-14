@@ -1,7 +1,9 @@
-/* Font (loaded from CSS, no HTML edits) */
+/* Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
-/* Design tokens */
+/* ================================
+   Design tokens
+   ================================ */
 :root {
   --bg: #0b0f17;
   --surface: #0f1625;
@@ -31,10 +33,13 @@
   }
 }
 
-/* Reset/base */
+/* ================================
+   Reset / base
+   ================================ */
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
@@ -49,7 +54,6 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -60,15 +64,17 @@ a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
 a:hover {
   color: var(--accent);
 }
+
 img {
   max-width: 100%;
   display: block;
 }
 
-/* Layout */
+/* Layout container */
 .container {
   max-width: 1040px;
   margin: 0 auto;
@@ -80,7 +86,14 @@ main {
   flex: 1;
 }
 
-/* Topbar */
+/* When nav is open on mobile, lock background scroll */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* ================================
+   Topbar (desktop baseline)
+   ================================ */
 .topbar {
   position: sticky;
   top: 0;
@@ -88,7 +101,6 @@ main {
   width: 100%;
   max-width: 100%;
   margin: 0;
-
   background: linear-gradient(
       to bottom,
       rgba(11, 15, 23, .9),
@@ -97,7 +109,6 @@ main {
     var(--bg);
   backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid var(--border);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -113,6 +124,7 @@ main {
   white-space: nowrap;
 }
 
+/* Desktop nav (baseline) */
 .topbar nav {
   display: flex;
   gap: .35rem .35rem;
@@ -143,85 +155,92 @@ main {
   border-color: transparent;
 }
 
-/* Hamburger menu button */
+/* Hamburger button (shown only on small screens) */
 #menu-toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   background: none;
   border: none;
   color: var(--text);
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-#menu-toggle.open {
-  transform: rotate(90deg);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  padding: 0;
 }
 
-/* Mobile overlay navigation */
+/* ================================
+   Mobile full-screen menu
+   ================================ */
 @media (max-width: 640px) {
+  /* Show burger on mobile */
   #menu-toggle {
     display: block;
+    z-index: 60; /* above overlay */
   }
 
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 40;
-  }
-
+  /* Turn normal desktop nav into a full-screen overlay */
   .topbar nav {
     position: fixed;
-    top: 3.25rem; /* approx header height */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: none;
+    inset: 0;
+    display: none;          /* hidden by default */
     flex-direction: column;
-    padding: 1.25rem 1.5rem 2.5rem;
-    background: linear-gradient(
-      to bottom,
-      rgba(11, 15, 23, 0.94),
-      rgba(11, 15, 23, 0.90)
-    );
-    backdrop-filter: blur(14px);
-    gap: 0.35rem;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 0 1.5rem;
+    background:
+      radial-gradient(480px 480px at 50% 40%, rgba(96, 165, 250, 0.16), transparent 65%),
+      rgba(2, 6, 23, 0.96);
+    backdrop-filter: blur(18px);
+    z-index: 50;
   }
 
+  /* When open, show overlay */
   .topbar nav.open {
     display: flex;
   }
 
+  /* Menu links in overlay */
   .topbar nav a {
-    padding: 0.7rem 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 1.05rem;
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #dde3f1;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
   }
 
-  .topbar nav a:last-child {
-    border-bottom: none;
+  .topbar nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 22px rgba(96, 165, 250, 0.85);
   }
 
-  /* Tighten container padding on very small screens */
-  .container {
-    padding-inline: 1.1rem;
+  .topbar nav a.active {
+    color: var(--accent);
+    text-shadow:
+      0 0 22px rgba(96, 165, 250, 0.95),
+      0 0 40px rgba(15, 23, 42, 0.9);
   }
 
-  /* One card per row on phones */
-  .grid {
-    grid-template-columns: minmax(0, 1fr);
+  /* Position the close (X) icon top-right when open */
+  body.nav-open #menu-toggle {
+    position: fixed;
+    top: 1.1rem;
+    right: 1.2rem;
+    transform: none;
   }
 
-  .hero p {
-    max-width: 100%;
+  /* Hide horizontal desktop layout while overlay is present */
+  .topbar {
+    justify-content: space-between;
   }
 }
 
-/* Prevent background scrolling when nav overlay is open */
-body.nav-open {
-  overflow: hidden;
-}
-
-/* Headings / hero */
+/* ================================
+   Headings / hero
+   ================================ */
 h1,
 h2,
 h3 {
@@ -261,7 +280,9 @@ h3 {
   max-width: 62ch;
 }
 
-/* Buttons */
+/* ================================
+   Buttons
+   ================================ */
 .btn,
 .btn-secondary {
   display: inline-block;
@@ -285,17 +306,31 @@ h3 {
   border: 1px solid var(--border);
   color: var(--text);
   background: transparent;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
 }
 
 .btn-secondary:hover {
   background: var(--elev);
 }
 
-/* Cards / grid */
+/* Buttons with icons (GitHub / LinkedIn / Email links) */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Small SVG icons inside buttons */
+.icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.2rem;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+/* ================================
+   Cards / grid
+   ================================ */
 .grid {
   display: grid;
   gap: 1rem;
@@ -326,7 +361,9 @@ h3 {
   text-decoration: underline;
 }
 
-/* Tags / chips */
+/* ================================
+   Tags / chips
+   ================================ */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -349,7 +386,9 @@ h3 {
   border-color: color-mix(in oklab, var(--border) 60%, var(--accent));
 }
 
-/* Utilities */
+/* ================================
+   Utilities
+   ================================ */
 .muted {
   color: var(--muted);
 }
@@ -369,7 +408,9 @@ p {
   margin: 0 0 .8rem;
 }
 
-/* Footer */
+/* ================================
+   Footer
+   ================================ */
 .footer {
   margin-top: 3rem;
   padding-top: 1rem;
@@ -378,7 +419,9 @@ p {
   flex-shrink: 0;
 }
 
-/* Forms (global) */
+/* ================================
+   Forms (global)
+   ================================ */
 input,
 textarea {
   width: 100%;
@@ -395,20 +438,9 @@ textarea:focus {
   border-color: var(--accent);
 }
 
-/* =========================================================
-   Shared components for Contact / Projects / Icons
-   ========================================================= */
-
-/* Small SVG icons inside buttons */
-.icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  margin-right: 0.2rem;
-  vertical-align: text-bottom;
-  fill: currentColor;
-}
-
-/* Projects page cards with status pills */
+/* ================================
+   Project cards / status pills
+   ================================ */
 .project-card {
   position: relative;
   background: var(--elev);
@@ -450,7 +482,9 @@ textarea:focus {
   background-color: #facc15;
 }
 
-/* Contact form card */
+/* ================================
+   Contact form card
+   ================================ */
 .form-card {
   background: var(--elev);
   border: 1px solid var(--border);
