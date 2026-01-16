@@ -22,25 +22,46 @@
       background-color: #9ca3af;
     }
 
-    /* Pills for section navigation */
+    /* Section navigation buttons (match primary button style) */
     .pill-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
-      margin-top: 1rem;
+      margin-top: 1.1rem;
     }
+
     .pill {
-      padding: 0.4rem 0.95rem;
-      border-radius: 9999px;
-      background-color: #1f2937;
-      border: 1px solid #334155;
-      color: #f9fafb;
-      font-size: 0.875rem;
+      display: inline-block;
+      padding: 0.55rem 1.1rem;
+      border-radius: 14px; /* similar to .btn on home */
+      background-color: var(--accent);
+      border: none;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
       text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .06s ease, background .08s ease, box-shadow .08s ease;
     }
-    .pill:hover {
-      border-color: #3b82f6;
-      color: #93c5fd;
+
+    .pill:hover,
+    .pill:focus-visible {
+      transform: translateY(-1px);
+      background-color: color-mix(in oklab, var(--accent) 85%, #ffffff 15%);
+      box-shadow: var(--shadow);
+      color: #ffffff; /* keep text readable even with global a:hover */
+    }
+
+    /* Stack the buttons nicely on very small phones */
+    @media (max-width: 480px) {
+      .pill-buttons {
+        flex-direction: column;
+      }
+      .pill {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -68,12 +89,12 @@
         stream will highlight process, documentation, and stakeholder work.
       </p>
       <div class="pill-buttons">
-        <a class="pill" href="#software-projects">Software &amp; XR Projects</a>
+        <a class="pill" href="#software-projects">Software Projects</a>
         <a class="pill" href="#ba-projects">Business Analysis Projects</a>
       </div>
     </section>
 
-    <h2 id="software-projects">Software Engineering &amp; XR Prototypes</h2>
+    <h2 id="software-projects">Software Engineering Projects</h2>
 
     <section class="project-card">
       <div class="status-pill status-orange">Pending</div>
@@ -105,7 +126,7 @@
       </p>
     </section>
 
-    <h2 id="ba-projects">Business Analysis &amp; Process Work</h2>
+    <h2 id="ba-projects">Business Analysis Projects</h2>
 
     <section class="card">
       <p class="muted">
