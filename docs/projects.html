@@ -5,67 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Projects</title>
   <meta name="description" content="Personal projects and case studies.">
-  <link rel="stylesheet" href="assets/css/site.css?v=11">
+  <link rel="stylesheet" href="assets/css/site.css?v=12">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
-  <style>
-    /* Per-page overrides for status colours */
-    .status-orange {
-      background-color: #f97316;
-    }
-    .status-orange::before {
-      background-color: #facc15;
-    }
-    .status-grey {
-      background-color: #6b7280;
-    }
-    .status-grey::before {
-      background-color: #9ca3af;
-    }
-
-    /* Section navigation buttons (match primary button style) */
-    .pill-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.1rem;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 0.55rem 1.1rem;
-      border-radius: 14px; /* similar to .btn on home */
-      background-color: var(--accent);
-      border: none;
-      color: #ffffff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-      transition: transform .06s ease, background .08s ease, box-shadow .08s ease;
-    }
-
-    .pill:hover,
-    .pill:focus-visible {
-      transform: translateY(-1px);
-      background-color: color-mix(in oklab, var(--accent) 85%, #ffffff 15%);
-      box-shadow: var(--shadow);
-      color: #ffffff; /* keep text readable even with global a:hover */
-    }
-
-    /* Stack the buttons nicely on very small phones */
-    @media (max-width: 480px) {
-      .pill-buttons {
-        flex-direction: column;
-      }
-      .pill {
-        width: 100%;
-        text-align: center;
-      }
-    }
-  </style>
 </head>
 <body>
+
   <header class="topbar">
     <a class="brand" href="index.html">Langelihle Malaza</a>
     <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -80,113 +24,97 @@
   </header>
 
   <main class="container">
-    <h1>Projects</h1>
 
-    <section class="card">
-      <p class="muted">
-        This page presents selected software engineering prototypes and future business analysis projects.
-        Technical work focuses on XR, interaction design, and fintech concepts, while the business analysis
-        stream will highlight process, documentation, and stakeholder work.
-      </p>
-      <div class="pill-buttons">
-        <a class="pill" href="#software-projects">Software Projects</a>
-        <a class="pill" href="#ba-projects">Business Analysis Projects</a>
-      </div>
+    <section class="hero fade-up">
+      <div class="page-label">My work</div>
+      <h1><em>Projects</em> &amp;<br>case studies.</h1>
     </section>
 
-    <h2 id="software-projects">Software Engineering Projects</h2>
-
-    <!-- Mazzel -->
-    <section class="project-card">
-      <div class="status-pill status-orange">In Development</div>
-      <h2>Mazzel</h2>
-      <h3>Stovel Banking Web-App</h3>
+    <div class="card fade-up fade-up-1">
       <p class="muted">
-        A digital-first banking application tailored for rural and underbanked communities. 
+        Selected software engineering prototypes and future business analysis projects. Technical work focuses on XR,
+        interaction design, and fintech concepts; the business analysis stream will highlight process, documentation,
+        and stakeholder work.
+      </p>
+      <div class="pill-buttons" style="margin-top:1rem">
+        <a class="btn" href="#software-projects">Software Projects</a>
+        <a class="btn-secondary" href="#ba-projects">Business Analysis</a>
+      </div>
+    </div>
+
+    <h2 id="software-projects" class="fade-up fade-up-2">Software Engineering Projects</h2>
+
+    <section class="card project-card fade-up fade-up-2" style="position:relative">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.6rem">
+        <h2 style="margin:0">Mazzel</h2>
+        <div class="status-pill" style="flex-shrink:0;margin:0">In Development</div>
+      </div>
+      <h3 style="color:var(--text-muted);font-weight:400;font-size:.95rem;margin-bottom:.85rem">Stovel Banking Web-App</h3>
+      <p class="muted">
+        A digital-first banking application tailored for rural and underbanked communities.
         Designed with simplicity, offline capability, and fintech integrations for mobile devices.
       </p>
     </section>
 
-    <!-- KIKO -->
-    <section class="project-card">
-      <div class="status-pill status-orange">In Development</div>
-      <h2>KIKO</h2>
-      <h3>Hand-Tracking, Voice &amp; Mobile Remote Control Interface</h3>
+    <section class="card project-card fade-up fade-up-3" style="position:relative">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.6rem">
+        <h2 style="margin:0">KIKO</h2>
+        <div class="status-pill" style="flex-shrink:0;margin:0">In Development</div>
+      </div>
+      <h3 style="color:var(--text-muted);font-weight:400;font-size:.95rem;margin-bottom:.85rem">Hand-Tracking, Voice &amp; Mobile Remote Control Interface</h3>
       <p class="muted">
-        A multimodal control prototype that combines hand tracking, voice commands, and a companion mobile phone as a remote. 
-        The goal was to explore natural ways to switch modes, adjust settings, and trigger actions without relying solely on a
-        physical controller. Currently in early design and experimentation.
+        A multimodal control prototype combining hand tracking, voice commands, and a companion mobile phone as a remote.
+        Exploring natural ways to switch modes and trigger actions without relying solely on a physical controller.
+        Currently in early design and experimentation.
       </p>
     </section>
 
-    <h2 id="ba-projects">Business Analysis Projects</h2>
+    <h2 id="ba-projects" class="fade-up fade-up-3">Business Analysis Projects</h2>
 
-    <section class="card">
+    <div class="card fade-up fade-up-3">
       <p class="muted">
-        Business analysis and process-focused project write-ups are being prepared and will appear here soon.
-        These will cover work such as stakeholder mapping, Business Model Canvas development, requirements
-        elicitation, and documentation for community organisations and learning programs.
+        Business analysis and process-focused write-ups are being prepared and will appear here soon. These will cover
+        stakeholder mapping, Business Model Canvas development, requirements elicitation, and documentation for community
+        organisations and learning programs.
       </p>
-      <p class="muted">
-        For now, brief summaries of some related work can be found on the 
-        <a href="research.html#access-analysis">Business Analysis for ACCESS</a> and 
+      <p class="muted" style="margin-top:.6rem">
+        Brief summaries of related work can be found on the
+        <a href="research.html#access-analysis">Business Analysis for ACCESS</a> and
         <a href="research.html#itsl">ITSL Group Project</a> entries on the Research page.
       </p>
-    </section>
+    </div>
 
-    <section class="card">
+    <div class="card fade-up fade-up-4">
       <p class="muted">
-        More public personal projects will be added over time. For private demos or collaboration,
-        feel free to get in touch via the Contact page.
+        More public projects will be added over time. For private demos or collaboration,
+        <a href="contact.html">get in touch</a>.
       </p>
-    </section>
+    </div>
+
   </main>
 
-  <footer class="footer container">
+  <footer class="footer">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
 
   <script>
-    const yearSpan = document.getElementById('y');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
+    document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => {
+    document.querySelectorAll('#main-nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
-
     const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-    const body = document.body;
-
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('open');
-        if (!isOpen) {
-          nav.classList.add('open');
-          body.classList.add('nav-open');
-          toggle.classList.add('open');
-          toggle.textContent = '✕';
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
+    const nav    = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.textContent = open ? '✕' : '☰';
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.textContent = '☰';
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   </script>
 </body>
 </html>

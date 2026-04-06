@@ -4,106 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Skills</title>
-  <meta name="description" content="Core skills: languages, tools, frameworks, and domains.">
-  <link rel="stylesheet" href="assets/css/site.css?v=11">
+  <meta name="description" content="Core skills — languages, tools, frameworks, and domains.">
+  <link rel="stylesheet" href="assets/css/site.css?v=12">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
-    /* Intro card + navigation pills (same style as other pages) */
-    .intro-card {
-      margin-bottom: 1.75rem;
-    }
-
-    .pill-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.1rem;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 0.55rem 1.1rem;
-      border-radius: 14px;
-      background-color: var(--accent);
-      border: none;
-      color: #ffffff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-      transition: transform .06s ease, background .08s ease, box-shadow .08s ease;
-    }
-
-    .pill:hover,
-    .pill:focus-visible {
-      transform: translateY(-1px);
-      background-color: color-mix(in oklab, var(--accent) 85%, #ffffff 15%);
-      box-shadow: var(--shadow);
-      color: #ffffff;
-    }
-
-    @media (max-width: 480px) {
-      .pill-buttons {
-        flex-direction: column;
-      }
-      .pill {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    /* Skills page layout */
-    .skill-card {
-      border-radius: 24px;
-      padding: 1.5rem 1.4rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .skill-card h2 {
-      margin-bottom: 0.75rem;
-    }
-
-    .skill-row {
-      padding: 0.85rem 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .skill-row:first-of-type {
-      margin-top: 0.3rem;
-      border-top: none;
-    }
-
-    .skill-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .skill-name {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .level-pill {
-      border-radius: 9999px;
-      border: 1px solid #3b82f6;
-      background: rgba(37, 99, 235, 0.12);
-      color: #bfdbfe;
-      padding: 0.15rem 0.75rem;
-      font-size: 0.78rem;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .skill-notes {
-      margin-top: 0.3rem;
-      font-size: 0.9rem;
-    }
+    /* Level pill colour variants */
+    .level-core       { border-color: rgba(124,255,203,.3); background: rgba(124,255,203,.1); color: var(--accent); }
+    .level-proficient { border-color: rgba(90,150,255,.3);  background: rgba(90,150,255,.1);  color: #7aaeff; }
+    .level-comfortable{ border-color: rgba(160,130,255,.3); background: rgba(160,130,255,.1); color: #c4aaff; }
+    .level-developing { border-color: rgba(255,160,90,.3);  background: rgba(255,160,90,.1);  color: #ffb07a; }
+    .level-learning   { border-color: rgba(255,200,60,.3);  background: rgba(255,200,60,.1);  color: #ffd060; }
+    .level-early      { border-color: rgba(255,160,90,.3);  background: rgba(255,160,90,.1);  color: #ffb07a; }
   </style>
 </head>
 <body>
+
   <header class="topbar">
     <a class="brand" href="index.html">Langelihle Malaza</a>
     <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -118,278 +33,225 @@
   </header>
 
   <main class="container">
-    <h1>Skills</h1>
 
-    <!-- Intro summary + navigation pills -->
-    <section class="card intro-card">
-      <p class="muted">
-        These are the core skills I apply on projects, research, and prototypes. Levels are self-assessed and
-        focus on what I actively use or am currently learning.
-      </p>
-      <div class="pill-buttons">
-        <a class="pill" href="#programming-languages">Programming Languages</a>
-        <a class="pill" href="#tools-platforms">Tools &amp; Platforms</a>
-        <a class="pill" href="#frameworks-libraries">Frameworks &amp; Libraries</a>
-        <a class="pill" href="#domains-practices">Domains &amp; Practices</a>
-      </div>
+    <section class="hero fade-up">
+      <div class="page-label">What I know</div>
+      <h1>Skills &amp;<br><em>expertise</em>.</h1>
     </section>
 
-    <!-- Programming languages -->
-    <section class="card skill-card" id="programming-languages">
-      <h2>Programming Languages</h2>
+    <div class="card fade-up fade-up-1">
+      <p class="muted">
+        Core skills I apply on projects, research, and prototypes. Levels are self-assessed and reflect what I
+        actively use or am currently learning.
+      </p>
+      <div class="pill-buttons" style="margin-top:1rem">
+        <a class="btn" href="#programming-languages">Languages</a>
+        <a class="btn-secondary" href="#tools-platforms">Tools</a>
+        <a class="btn-secondary" href="#frameworks-libraries">Frameworks</a>
+        <a class="btn-secondary" href="#domains-practices">Domains</a>
+      </div>
+    </div>
+
+    <!-- Programming Languages -->
+    <h2 id="programming-languages" class="fade-up fade-up-2">Programming Languages</h2>
+    <div class="card skill-card fade-up fade-up-2">
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">C#</span>
-          <span class="level-pill">Proficient</span>
+          <span class="level-pill level-proficient">Proficient</span>
         </div>
-        <p class="muted skill-notes">
-          Multi-year use as my main language for Unity VR simulators, coursework, and small utilities.
-        </p>
+        <p class="muted skill-notes">Multi-year use as my main language for Unity VR simulators, coursework, and small utilities.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Python</span>
-          <span class="level-pill">Proficient</span>
+          <span class="level-pill level-proficient">Proficient</span>
         </div>
-        <p class="muted skill-notes">
-          Used for analytics, data processing, and the Tobii eye-tracking research pipeline.
-        </p>
+        <p class="muted skill-notes">Used for analytics, data processing, and the Tobii eye-tracking research pipeline.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">SQL</span>
-          <span class="level-pill">Comfortable</span>
+          <span class="level-pill level-comfortable">Comfortable</span>
         </div>
-        <p class="muted skill-notes">
-          Queries for reporting, analysis, and coursework assignments working with relational data.
-        </p>
+        <p class="muted skill-notes">Queries for reporting, analysis, and coursework assignments working with relational data.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">SAS</span>
-          <span class="level-pill">Comfortable</span>
+          <span class="level-pill level-comfortable">Comfortable</span>
         </div>
-        <p class="muted skill-notes">
-          Statistical analysis and data manipulation for academic modules and small research tasks.
-        </p>
+        <p class="muted skill-notes">Statistical analysis and data manipulation for academic modules and small research tasks.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">C++</span>
-          <span class="level-pill">Learning</span>
+          <span class="level-pill level-learning">Learning</span>
         </div>
-        <p class="muted skill-notes">
-          Early-stage learning focused on fundamentals for systems programming and performance-sensitive code.
-        </p>
+        <p class="muted skill-notes">Early-stage learning focused on fundamentals for systems programming and performance-sensitive code.</p>
       </div>
-    </section>
 
-    <!-- Tools & platforms -->
-    <section class="card skill-card" id="tools-platforms">
-      <h2>Tools &amp; Platforms</h2>
+    </div>
+
+    <!-- Tools & Platforms -->
+    <h2 id="tools-platforms" class="fade-up fade-up-2">Tools &amp; Platforms</h2>
+    <div class="card skill-card fade-up fade-up-2">
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Git / GitHub</span>
-          <span class="level-pill">Proficient</span>
+          <span class="level-pill level-proficient">Proficient</span>
         </div>
-        <p class="muted skill-notes">
-          Daily use for version control, branching, and collaboration on academic and personal projects.
-        </p>
+        <p class="muted skill-notes">Daily use for version control, branching, and collaboration on academic and personal projects.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">VS Code &amp; Visual Studio</span>
-          <span class="level-pill">Proficient</span>
+          <span class="level-pill level-proficient">Proficient</span>
         </div>
-        <p class="muted skill-notes">
-          Main IDEs for C#, Python, and web projects, with debugging, extensions, and task integration.
-        </p>
+        <p class="muted skill-notes">Main IDEs for C#, Python, and web projects, with debugging, extensions, and task integration.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Unity Editor</span>
-          <span class="level-pill">Proficient</span>
+          <span class="level-pill level-proficient">Proficient</span>
         </div>
-        <p class="muted skill-notes">
-          Used for building VR tractor simulators, XR interaction prototypes, and scene/prefab management.
-        </p>
+        <p class="muted skill-notes">Used for building VR tractor simulators, XR interaction prototypes, and scene/prefab management.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Blender</span>
-          <span class="level-pill">Learning</span>
+          <span class="level-pill level-learning">Learning</span>
         </div>
-        <p class="muted skill-notes">
-          Basic modelling, animation, and rigging for VR props and environment assets.
-        </p>
+        <p class="muted skill-notes">Basic modelling, animation, and rigging for VR props and environment assets.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Arduino / Embedded Tools</span>
-          <span class="level-pill">Learning</span>
+          <span class="level-pill level-learning">Learning</span>
         </div>
-        <p class="muted skill-notes">
-          Early experiments connecting sensors and microcontrollers to software interfaces and prototypes.
-        </p>
+        <p class="muted skill-notes">Early experiments connecting sensors and microcontrollers to software interfaces and prototypes.</p>
       </div>
-    </section>
 
-    <!-- Frameworks & libraries -->
-    <section class="card skill-card" id="frameworks-libraries">
-      <h2>Frameworks &amp; Libraries</h2>
+    </div>
+
+    <!-- Frameworks & Libraries -->
+    <h2 id="frameworks-libraries" class="fade-up fade-up-3">Frameworks &amp; Libraries</h2>
+    <div class="card skill-card fade-up fade-up-3">
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Unity XR Interaction Toolkit</span>
-          <span class="level-pill">Proficient</span>
+          <span class="level-pill level-proficient">Proficient</span>
         </div>
-        <p class="muted skill-notes">
-          Used for interaction design, locomotion systems, grab mechanics, and UI in VR tractor training.
-        </p>
+        <p class="muted skill-notes">Interaction design, locomotion systems, grab mechanics, and UI in VR tractor training.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">.NET</span>
-          <span class="level-pill">Comfortable</span>
+          <span class="level-pill level-comfortable">Comfortable</span>
         </div>
-        <p class="muted skill-notes">
-          Experience with C#/.NET ecosystem for console utilities, data processing, and structured projects.
-        </p>
+        <p class="muted skill-notes">C#/.NET ecosystem for console utilities, data processing, and structured projects.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">pandas / NumPy</span>
-          <span class="level-pill">Comfortable</span>
+          <span class="level-pill level-comfortable">Comfortable</span>
         </div>
-        <p class="muted skill-notes">
-          Data wrangling, basic statistics, and tabular reporting for research and coursework.
-        </p>
+        <p class="muted skill-notes">Data wrangling, basic statistics, and tabular reporting for research and coursework.</p>
       </div>
-    </section>
 
-    <!-- Domains & practices -->
-    <section class="card skill-card" id="domains-practices">
-      <h2>Domains &amp; Practices</h2>
+    </div>
+
+    <!-- Domains & Practices -->
+    <h2 id="domains-practices" class="fade-up fade-up-3">Domains &amp; Practices</h2>
+    <div class="card skill-card fade-up fade-up-3">
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">VR Simulation &amp; Training</span>
-          <span class="level-pill">Core</span>
+          <span class="level-pill level-core">Core</span>
         </div>
-        <p class="muted skill-notes">
-          End-to-end VR prototype work, including interaction design, safety-focused tasks, and evaluation plans.
-        </p>
+        <p class="muted skill-notes">End-to-end VR prototype work, including interaction design, safety-focused tasks, and evaluation plans.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Mixed Reality (MR / AR)</span>
-          <span class="level-pill">Early</span>
+          <span class="level-pill level-early">Early</span>
         </div>
-        <p class="muted skill-notes">
-          Concept work for Rubik's Cube training and multimodal interfaces on devices like the Meta Quest 3.
-        </p>
+        <p class="muted skill-notes">Concept work for Rubik's Cube training and multimodal interfaces on devices like the Meta Quest 3.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Human–Computer Interaction</span>
-          <span class="level-pill">Comfortable</span>
+          <span class="level-pill level-comfortable">Comfortable</span>
         </div>
-        <p class="muted skill-notes">
-          Eye-tracking studies, UX research, and user-centred evaluation methods applied in academic modules.
-        </p>
+        <p class="muted skill-notes">Eye-tracking studies, UX research, and user-centred evaluation methods applied in academic modules.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Data Analytics &amp; Reporting</span>
-          <span class="level-pill">Comfortable</span>
+          <span class="level-pill level-comfortable">Comfortable</span>
         </div>
-        <p class="muted skill-notes">
-          Turning raw data into summaries and insights for assignments, research, and prototype metrics.
-        </p>
+        <p class="muted skill-notes">Turning raw data into summaries and insights for assignments, research, and prototype metrics.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Business Analysis &amp; Requirements</span>
-          <span class="level-pill">Developing</span>
+          <span class="level-pill level-developing">Developing</span>
         </div>
-        <p class="muted skill-notes">
-          Process mapping, stakeholder analysis, and documentation for community organisations and learning programs.
-        </p>
+        <p class="muted skill-notes">Process mapping, stakeholder analysis, and documentation for community organisations and learning programs.</p>
       </div>
 
       <div class="skill-row">
         <div class="skill-header">
           <span class="skill-name">Personal Finance / Fintech Concepts</span>
-          <span class="level-pill">Developing</span>
+          <span class="level-pill level-developing">Developing</span>
         </div>
-        <p class="muted skill-notes">
-          Interest in tools that support savings, budgeting, and access to financial services for underbanked users.
-        </p>
+        <p class="muted skill-notes">Interest in tools that support savings, budgeting, and access to financial services for underbanked users.</p>
       </div>
-    </section>
+
+    </div>
+
   </main>
 
-  <footer class="footer container">
+  <footer class="footer">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
 
   <script>
-    const yearSpan = document.getElementById('y');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
+    document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => {
+    document.querySelectorAll('#main-nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
-
     const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-    const body = document.body;
-
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('open');
-        if (!isOpen) {
-          nav.classList.add('open');
-          body.classList.add('nav-open');
-          toggle.classList.add('open');
-          toggle.textContent = '✕';
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
+    const nav    = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.textContent = open ? '✕' : '☰';
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.textContent = '☰';
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   </script>
 </body>
 </html>

@@ -4,11 +4,46 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · About</title>
-  <meta name="description" content="About and education.">
-  <link rel="stylesheet" href="assets/css/site.css?v=11">
+  <meta name="description" content="About Langelihle Malaza — background, interests, and education.">
+  <link rel="stylesheet" href="assets/css/site.css?v=12">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <style>
+    .edu-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: .9rem 0; border-top: 1px solid var(--glass-border);
+    }
+    .edu-item:first-child { border-top: none; padding-top: 0; }
+    .edu-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0; margin-top: .35rem;
+      box-shadow: 0 0 8px rgba(124,255,203,.45);
+    }
+    .edu-year {
+      font-size: .78rem; font-weight: 500; color: var(--accent);
+      margin-top: .1rem;
+    }
+    .work-trait {
+      padding: .7rem 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .work-trait:first-child { border-top: none; padding-top: 0; }
+    .trait-label { font-weight: 600; color: var(--text); font-size: .88rem; display: block; margin-bottom: .2rem; }
+    .trait-body  { font-size: .84rem; color: var(--text-muted); display: block; line-height: 1.55; }
+
+    /* Two equal columns that fill the full width */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+    .about-grid .card { height: 100%; }
+    @media (max-width: 700px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+
   <header class="topbar">
     <a class="brand" href="index.html">Langelihle Malaza</a>
     <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -23,109 +58,103 @@
   </header>
 
   <main class="container">
-    <h1>About</h1>
 
-    <section class="card">
-      <h2>Profile</h2>
-      <p class="muted">
-        I am Langelihle "Langa" Malaza, a B. Computer Information Systems (Honours) graduate with a strong interest in
+    <section class="hero fade-up">
+      <div class="page-label">About me</div>
+      <h1>Who I <em>am</em>.</h1>
+    </section>
+
+    <div class="card fade-up fade-up-1">
+      <p>
+        I'm Langelihle "Langa" Malaza, a B. Computer Information Systems (Honours) graduate with a strong interest in
         software engineering, XR simulation, and business analysis. I enjoy building interactive systems that solve real
-        problems, from tractor driving simulators for agricultural training to AI-assisted tools for personal finance.
+        problems — from tractor driving simulators for agricultural training to AI-assisted tools for personal finance.
       </p>
-    </section>
+    </div>
 
-    <section>
-      <div class="grid">
-        <article class="card">
-          <h2>Interests & Focus Areas</h2>
-          <ul>
-            <li>XR: VR, AR, and MR for training and education.</li>
-            <li>Embedded systems and Arduino-based prototypes that connect software to hardware.</li>
-            <li>Business analysis and process mapping to align solutions with how organisations actually work.</li>
-            <li>Data and analytics as feedback loops for improving systems and user experience.</li>
-            <li>Personal finance and community-banking tools that support financial literacy and access.</li>
-          </ul>
-        </article>
+    <div class="grid about-grid fade-up fade-up-2">
 
-        <article class="card">
-          <h2>How I Work</h2>
-          <p class="muted">
-            I see software engineering as a tool to solve problems, not just a way to ship features. I try to add
-            value to the organisations and teams I work with by keeping the focus on impact and clarity.
-          </p>
-          <ul>
-            <li><strong>Hardworking and consistent:</strong> I prefer steady progress, clear milestones, and reliable delivery.</li>
-            <li><strong>Creative problem solver:</strong> I enjoy exploring different interaction modes and designs before choosing a solution.</li>
-            <li><strong>User-centred:</strong> I care about how people experience a system, not just how it works internally.</li>
-            <li><strong>Structure-focused:</strong> I like clean architecture, maintainable code, and documentation that future developers can follow.</li>
-          </ul>
-        </article>
+      <div class="card">
+        <h3>Interests &amp; Focus Areas</h3>
+        <ul style="margin-top:.6rem">
+          <li>XR: VR, AR, and MR for training and education.</li>
+          <li>Embedded systems and Arduino-based prototypes connecting software to hardware.</li>
+          <li>Business analysis and process mapping to align solutions with how organisations work.</li>
+          <li>Data and analytics as feedback loops for improving systems and UX.</li>
+          <li>Personal finance and community-banking tools for financial literacy and access.</li>
+        </ul>
       </div>
-    </section>
 
-    <h2>Education</h2>
-    <section class="card">
-      <ul>
-        <li><strong>🎓 B. Computer Information Systems</strong>, University of the Free State, <em>2024</em></li>
-        <li><strong>🎓 B. Honours Computer Information Systems (Cum Laude)</strong>, University of the Free State, <em>2025</em></li>
-      </ul>
-    </section>
+      <div class="card">
+        <h3>How I Work</h3>
+        <p class="muted" style="margin-bottom:.85rem;font-size:.88rem;">
+          I see software engineering as a tool to solve problems, not just a way to ship features.
+          I try to add value by keeping focus on impact and clarity.
+        </p>
+        <div class="work-trait">
+          <span class="trait-label">Hardworking &amp; consistent</span>
+          <span class="trait-body">Steady progress, clear milestones, reliable delivery.</span>
+        </div>
+        <div class="work-trait">
+          <span class="trait-label">Creative problem solver</span>
+          <span class="trait-body">Exploring different interaction modes before committing to a solution.</span>
+        </div>
+        <div class="work-trait">
+          <span class="trait-label">User-centred</span>
+          <span class="trait-body">Focused on how people experience a system, not just how it works internally.</span>
+        </div>
+        <div class="work-trait">
+          <span class="trait-label">Structure-focused</span>
+          <span class="trait-body">Clean architecture, maintainable code, documentation future developers can follow.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="fade-up fade-up-3">Education</h2>
+    <div class="card fade-up fade-up-3">
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div style="font-weight:600;font-size:.97rem;">B. Computer Information Systems</div>
+          <div style="font-size:.84rem;color:var(--text-muted)">University of the Free State</div>
+          <div class="edu-year">2024</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div style="font-weight:600;font-size:.97rem;">B. Honours Computer Information Systems <span style="color:var(--accent);font-size:.82rem;font-weight:500">Cum Laude</span></div>
+          <div style="font-size:.84rem;color:var(--text-muted)">University of the Free State</div>
+          <div class="edu-year">2025</div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <footer class="footer container">
+  <footer class="footer">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
 
   <script>
-    // Year in footer
-    const yearSpan = document.getElementById('y');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // Highlight active nav item
+    document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => {
+    document.querySelectorAll('#main-nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
-
-    // Mobile Navigation Logic
     const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-    const body = document.body;
-
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('open');
-        
-        if (!isOpen) {
-          // Open
-          nav.classList.add('open');
-          body.classList.add('nav-open');
-          toggle.classList.add('open');
-          toggle.textContent = '✕';
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          // Close
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Close menu when clicking a link
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
+    const nav    = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.textContent = open ? '✕' : '☰';
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.textContent = '☰';
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   </script>
 </body>
 </html>

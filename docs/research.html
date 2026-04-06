@@ -4,53 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Research</title>
-  <meta name="description" content="Research portfolio, both academic and independent.">
-  <link rel="stylesheet" href="assets/css/site.css?v=11">
+  <meta name="description" content="Research portfolio — academic and independent.">
+  <link rel="stylesheet" href="assets/css/site.css?v=12">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
-    /* Section navigation buttons (match primary button style) */
-    .pill-buttons {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 1.1rem;
+    .meta-row {
+      display: flex; gap: .5rem; flex-wrap: wrap;
+      margin-top: .85rem;
     }
-
-    .pill {
-      display: inline-block;
-      padding: 0.55rem 1.1rem;
-      border-radius: 14px; /* similar to .btn on home */
-      background-color: var(--accent);
-      border: none;
-      color: #ffffff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-      transition: transform .06s ease, background .08s ease, box-shadow .08s ease;
+    .meta-item {
+      font-size: .78rem; color: var(--text-muted);
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--glass-border);
+      border-radius: 7px; padding: .2rem .65rem;
     }
+    .meta-item strong { color: var(--text); font-weight: 500; }
 
-    .pill:hover,
-    .pill:focus-visible {
-      transform: translateY(-1px);
-      background-color: color-mix(in oklab, var(--accent) 85%, #ffffff 15%);
-      box-shadow: var(--shadow);
-      color: #ffffff; /* keep text readable even with global a:hover */
-    }
-
-    @media (max-width: 480px) {
-      .pill-buttons {
-        flex-direction: column;
-      }
-      .pill {
-        width: 100%;
-        text-align: center;
-      }
+    .disclaimer-card {
+      border-left: 3px solid rgba(var(--accent-rgb),.4);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
     }
   </style>
 </head>
 <body>
+
   <header class="topbar">
     <a class="brand" href="index.html">Langelihle Malaza</a>
     <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -65,180 +42,156 @@
   </header>
 
   <main class="container">
-    <h1>Research</h1>
 
-    <section class="card">
+    <section class="hero fade-up">
+      <div class="page-label">Academic &amp; independent</div>
+      <h1><em>Research</em><br>portfolio.</h1>
+    </section>
+
+    <div class="card fade-up fade-up-1">
       <p class="muted">
-        This page contains both university-affiliated research conducted as part of academic programs, and independent
+        This page contains university-affiliated research conducted as part of academic programs, and independent
         research pursued outside institutional boundaries.
       </p>
-
-      <div class="pill-buttons">
-        <a class="pill" href="#university-research">University Research</a>
-        <a class="pill" href="#independent-research">Independent Research</a>
+      <div class="pill-buttons" style="margin-top:1rem">
+        <a class="btn" href="#university-research">University Research</a>
+        <a class="btn-secondary" href="#independent-research">Independent Research</a>
       </div>
-    </section>
+    </div>
 
-    <h2 id="university-research">University-Affiliated Research</h2>
+    <h2 id="university-research" class="fade-up fade-up-2">University-Affiliated Research</h2>
 
-    <section class="card">
-      <h3>Disclaimer</h3>
-      <p class="muted">
-        All projects and papers in this section fall under the University of the Free State. Intellectual property,
-        data ownership, and reproduction rights may reside with UFS and the listed supervisors. This site presents
-        short summaries for portfolio purposes only.
+    <div class="card disclaimer-card fade-up fade-up-2">
+      <p class="muted" style="font-size:.86rem">
+        All projects in this section fall under the University of the Free State. Intellectual property, data ownership,
+        and reproduction rights may reside with UFS and the listed supervisors. Summaries are presented for portfolio
+        purposes only.
       </p>
-    </section>
+    </div>
 
-    <section class="card" id="vr-tractor">
+    <section class="card fade-up fade-up-2" id="vr-tractor">
       <h3>Tractor Driving VR</h3>
       <p>
-        I built a VR tractor simulator for safety training of novice agricultural and engineering students. 
-        Features included realistic dynamics, seat-gated controls, and startup/shutdown procedures. Completed in under 
+        I built a VR tractor simulator for safety training of novice agricultural and engineering students.
+        Features included realistic dynamics, seat-gated controls, and startup/shutdown procedures. Completed in under
         8 months as an Honours project.
       </p>
-      <ul>
-        <li><strong>Supervisor:</strong> Dr B. Botha</li>
-        <li><strong>Co-assessor:</strong> Mr C. Cilliers</li>
-        <li><strong>Tools &amp; languages:</strong> C#, Unity, Blender, XR Interaction Toolkit, Git</li>
-        <li><strong>Outputs:</strong> Prototype, Technical manual, User manual</li>
-      </ul>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Supervisor:</strong> Dr B. Botha</span>
+        <span class="meta-item"><strong>Co-assessor:</strong> Mr C. Cilliers</span>
+        <span class="meta-item"><strong>Tools:</strong> C#, Unity, Blender, XRI, Git</span>
+        <span class="meta-item"><strong>Outputs:</strong> Prototype, Technical manual, User manual</span>
+      </div>
       <div class="tags">
         <span class="tag">VR</span><span class="tag">Unity</span><span class="tag">C#</span><span class="tag">XRI</span>
       </div>
     </section>
 
-    <section class="card" id="eye-tracking">
-      <h3>Eye-tracking Study (Tobii)</h3>
+    <section class="card fade-up fade-up-3" id="eye-tracking">
+      <h3>Eye-Tracking Study (Tobii)</h3>
       <p>
-        I analysed gaze behaviour using a Tobii device as part of the HCI-Honours module. The study included seven
+        Analysed gaze behaviour using a Tobii device as part of the HCI-Honours module. The study included seven
         participants and reported heat maps, fixations, and related metrics.
       </p>
-      <ul>
-        <li><strong>Supervisor:</strong> Prof. T. Stott</li>
-        <li><strong>Assessor:</strong> Dr B. Botha</li>
-        <li><strong>Team size:</strong> 3</li>
-        <li><strong>Participants:</strong> 7</li>
-        <li><strong>Methods:</strong> Heat maps, fixation analysis</li>
-        <li><strong>Stack:</strong> Python, Excel, Tobii tooling</li>
-        <li><strong>Outputs:</strong> Research Paper</li>
-      </ul>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Supervisor:</strong> Prof. T. Stott</span>
+        <span class="meta-item"><strong>Assessor:</strong> Dr B. Botha</span>
+        <span class="meta-item"><strong>Team:</strong> 3 · <strong>Participants:</strong> 7</span>
+        <span class="meta-item"><strong>Stack:</strong> Python, Excel, Tobii tooling</span>
+        <span class="meta-item"><strong>Output:</strong> Research Paper</span>
+      </div>
       <div class="tags">
         <span class="tag">HCI</span><span class="tag">Analytics</span><span class="tag">Tobii</span>
       </div>
     </section>
 
-    <section class="card" id="itsl">
+    <section class="card fade-up fade-up-3" id="itsl">
       <h3>ITSL Group Project</h3>
       <p>
         The team prepared a horizontal website prototype for a learning program and shipped technical documentation to support it.
         Six group members collaborated with clear responsibilities and review cycles.
       </p>
-      <ul>
-        <li><strong>Assessor:</strong> Dr R. Fouche</li>
-        <li><strong>Team size:</strong> 6</li>
-        <li><strong>Focus:</strong> Web prototype, Documentation, Learning Content Structure</li>
-        <li><strong>Artifacts:</strong> Prototype site and technical documentation</li>
-      </ul>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Assessor:</strong> Dr R. Fouche</span>
+        <span class="meta-item"><strong>Team:</strong> 6</span>
+        <span class="meta-item"><strong>Focus:</strong> Web prototype, Documentation, Learning Content</span>
+      </div>
       <div class="tags">
         <span class="tag">Team</span><span class="tag">Web</span><span class="tag">Documentation</span>
       </div>
     </section>
 
-    <section class="card" id="access-analysis">
+    <section class="card fade-up fade-up-4" id="access-analysis">
       <h3>Business Analysis for ACCESS</h3>
       <p>
-        I prepared a structured analysis for ACCESS, an organisation at UFS, to support NPO registration and community impact.
-        Six group members contributed to the document, covering segments, value propositions, and operational considerations.
+        Structured analysis for ACCESS, an organisation at UFS, to support NPO registration and community impact.
+        Six group members contributed, covering segments, value propositions, and operational considerations.
       </p>
-      <ul>
-        <li><strong>Assessor:</strong> Dr E. E. Benedict</li>
-        <li><strong>Team size:</strong> 6</li>
-        <li><strong>Focus:</strong> NPO registration pathway, Business Model Canvas, Stakeholder Overview</li>
-        <li><strong>Outputs:</strong> Business analysis report and slides</li>
-      </ul>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Assessor:</strong> Dr E. E. Benedict</span>
+        <span class="meta-item"><strong>Team:</strong> 6</span>
+        <span class="meta-item"><strong>Focus:</strong> NPO registration, BMC, Stakeholder overview</span>
+        <span class="meta-item"><strong>Output:</strong> Report &amp; slides</span>
+      </div>
       <div class="tags">
         <span class="tag">Business Analysis</span><span class="tag">BMC</span><span class="tag">NPO</span>
       </div>
     </section>
 
-    <section class="card" id="ai-research">
+    <section class="card fade-up fade-up-4" id="ai-research">
       <h3>AI Research Paper (IT Project Management)</h3>
       <p>
-        I examined the role of AI in a software development context using "Apex" as a fictional company. The paper discussed
+        Examined the role of AI in a software development context using "Apex" as a fictional company. Discussed
         responsible integration, workflow changes, and project management implications.
       </p>
-      <ul>
-        <li><strong>Module:</strong> IT Project Management</li>
-        <li><strong>Assessor:</strong> Dr R. Bezuidenhout</li>
-        <li><strong>Scope:</strong> AI's role in software teams and delivery</li>
-        <li><strong>Outputs:</strong> Research Paper</li>
-      </ul>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Module:</strong> IT Project Management</span>
+        <span class="meta-item"><strong>Assessor:</strong> Dr R. Bezuidenhout</span>
+        <span class="meta-item"><strong>Output:</strong> Research Paper</span>
+      </div>
       <div class="tags">
         <span class="tag">AI</span><span class="tag">Project Management</span><span class="tag">Software Engineering</span>
       </div>
     </section>
 
-    <h2 id="independent-research">Independent Research</h2>
+    <h2 id="independent-research" class="fade-up fade-up-4">Independent Research</h2>
 
-    <section class="card">
+    <div class="card fade-up fade-up-4">
       <p class="muted">
-        Independent research involves work pursued outside formal academic programs. These often reflect personal interests,
+        Independent research involves work pursued outside formal academic programs — often reflecting personal interests,
         ongoing learning, or freelance collaborations.
       </p>
-    </section>
+    </div>
 
-    <section class="card">
+    <div class="card fade-up fade-up-4">
       <h3>Coming Soon</h3>
       <p class="muted">Independent research write-ups and articles are currently being prepared and will appear here shortly.</p>
-    </section>
+    </div>
+
   </main>
 
-  <footer class="footer container">
+  <footer class="footer">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
 
   <script>
-    const yearSpan = document.getElementById('y');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
+    document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => {
+    document.querySelectorAll('#main-nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
-
     const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-    const body = document.body;
-
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('open');
-        if (!isOpen) {
-          nav.classList.add('open');
-          body.classList.add('nav-open');
-          toggle.classList.add('open');
-          toggle.textContent = '✕';
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
+    const nav    = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.textContent = open ? '✕' : '☰';
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.textContent = '☰';
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   </script>
 </body>
 </html>

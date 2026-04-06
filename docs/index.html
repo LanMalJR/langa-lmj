@@ -4,230 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Langelihle Malaza · Home</title>
-  <meta name="description" content="Developer portfolio showcasing projects and research.">
-  <link rel="stylesheet" href="assets/css/site.css?v=11">
+  <meta name="description" content="Developer portfolio — VR simulation, XR, and software engineering.">
+  <link rel="stylesheet" href="assets/css/site.css?v=12">
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <style>
-    /* Kill any horizontal scroll (ticker animation etc.) */
-    html,
-    body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    /* Horizontal marquee ticker for languages + tools */
-    .ticker {
-      margin: 2rem 0 2.5rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(600px 200px at 0% 0%, var(--accent-soft), transparent 60%),
-        var(--elev);
-      overflow: hidden;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .ticker-inner {
-      display: flex;
-      width: max-content;
-      will-change: transform;
-      animation: ticker-scroll 45s linear infinite;
-      animation-play-state: running;
-    }
-
-    /* Pause the scroll only when hovering over the ticker area */
-    .ticker:hover .ticker-inner {
-      animation-play-state: paused;
-    }
-
-    .ticker-track {
-      display: flex;
-      gap: 2.25rem;
-      padding: 0.75rem 1.5rem;
-      white-space: nowrap;
-    }
-
-    .ticker-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.9rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .ticker-dot {
-      width: 0.45rem;
-      height: 0.45rem;
-      border-radius: 9999px;
-      background: var(--accent);
-    }
-
-    @keyframes ticker-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Pill-style buttons (shared with Research / Projects pages) */
-    .pill-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.1rem;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 0.55rem 1.1rem;
-      border-radius: 14px; /* similar to .btn on home */
-      background-color: var(--accent);
-      border: none;
-      color: #ffffff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-      transition: transform .06s ease, background .08s ease, box-shadow .08s ease;
-    }
-
-    .pill:hover,
-    .pill:focus-visible {
-      transform: translateY(-1px);
-      background-color: color-mix(in oklab, var(--accent) 85%, #ffffff 15%);
-      box-shadow: var(--shadow);
-      color: #ffffff; /* keep text readable even with global a:hover */
-    }
-
-    /* Mobile responsive styles */
-    @media (max-width: 768px) {
-      .container {
-        padding: 1rem !important;
-        max-width: 100% !important;
-      }
-
-      .hero {
-        padding: 1.5rem 0 !important;
-      }
-
-      .hero h1 {
-        font-size: 1.75rem !important;
-        line-height: 1.3 !important;
-        margin-bottom: 1rem !important;
-      }
-
-      .hero p {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
-        margin-bottom: 1rem !important;
-      }
-
-      .hero p:last-of-type {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0.75rem !important;
-      }
-
-      .pill,
-      .btn-secondary {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 0.75rem 1.5rem !important;
-        font-size: 0.95rem !important;
-      }
-
-      section h2 {
-        font-size: 1.5rem !important;
-        margin-bottom: 1.25rem !important;
-      }
-
-      .grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
-      }
-
-      .card {
-        padding: 1.25rem !important;
-      }
-
-      .card h3 {
-        font-size: 1.1rem !important;
-        margin-bottom: 0.5rem !important;
-      }
-
-      .card p {
-        font-size: 0.9rem !important;
-        line-height: 1.5 !important;
-      }
-
-      .tags {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 0.5rem !important;
-        margin-top: 0.75rem !important;
-      }
-
-      .tag {
-        font-size: 0.75rem !important;
-        padding: 0.3rem 0.7rem !important;
-      }
-
-      .footer {
-        padding: 1.5rem 1rem !important;
-        font-size: 0.85rem !important;
-      }
-    }
-
-    /* Tighter marquee + better fit on small phones */
-    @media (max-width: 640px) {
-      .ticker {
-        margin: 1.5rem 0 2rem;
-        border-radius: 12px;
-      }
-      .ticker-track {
-        gap: 1.1rem;
-        padding: 0.55rem 0.8rem;
-      }
-      .ticker-item {
-        font-size: 0.78rem;
-        padding: 0.2rem 0.7rem;
-      }
-      .hero h1 { font-size: 1.5rem !important; }
-      .hero p { font-size: 0.9rem !important; }
-      .card h3 { font-size: 1rem !important; }
-      .card p { font-size: 0.85rem !important; }
-    }
-
-    /* Stack pill-style buttons nicely on very small phones */
-    @media (max-width: 480px) {
-      .pill-buttons {
-        flex-direction: column;
-      }
-      .pill {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 375px) {
-      .container { padding: 0.75rem !important; }
-      .hero h1 { font-size: 1.35rem !important; }
-      .pill,
-      .btn-secondary {
-        padding: 0.65rem 1.25rem !important;
-        font-size: 0.9rem !important;
-      }
-    }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
   </style>
 </head>
 <body>
+
   <header class="topbar">
     <a class="brand" href="index.html">Langelihle Malaza</a>
     <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
@@ -242,21 +28,26 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1>Building useful, well-engineered software.</h1>
-      <p class="muted">
-        I focus on developing Virtual Reality based education and training simulators, and I am
-        exploring opportunities in Business Analysis. Alongside this, I am learning C++ and
-        working with embedded systems using Arduino.
+
+    <section class="hero fade-up">
+      <div class="page-label">Portfolio</div>
+      <h1>Building useful,<br><em>well-engineered</em> software.</h1>
+      <p class="muted" style="margin-top:1rem;max-width:480px;">
+        I focus on Virtual Reality education and training simulators, and I'm exploring opportunities
+        in Business Analysis. Currently learning C++ and working with embedded systems on Arduino.
       </p>
-      <p>
-        <!-- Now using the same pill style as Research / Projects -->
-        <a class="pill" href="projects.html#software-projects">View projects</a>
-        <a class="btn-secondary" href="https://github.com/LanMalJR" target="_blank" rel="noopener">GitHub</a>
-      </p>
+      <div class="hero-btns">
+        <a class="btn" href="projects.html#software-projects">View projects</a>
+        <a class="btn-secondary" href="https://github.com/LanMalJR" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;fill:currentColor">
+            <path d="M12 0.3C5.4 0.3 0 5.7 0 12.4c0 5.3 3.4 9.7 8.2 11.3.6.1.8-.2.8-.5v-2c-3.3.7-4-1.4-4-1.4-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 1.7 2.5 1.3 3.1 1 0-.9.3-1.6.6-2-2.7-.3-5.5-1.3-5.5-5.7 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 6 18 6.3 18 6.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3 0 4.4-2.8 5.4-5.5 5.7.4.4.7 1 .7 2v2.9c0 .3.2.6.8.5A12.2 12.2 0 0 0 24 12.4C24 5.7 18.6.3 12 .3z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
     </section>
 
-    <section class="ticker" aria-label="Languages and tools I work with">
+    <section class="ticker fade-up fade-up-1" aria-label="Languages and tools">
       <div class="ticker-inner">
         <div class="ticker-track">
           <span class="ticker-item"><span class="ticker-dot"></span>C#</span>
@@ -272,7 +63,6 @@
           <span class="ticker-item"><span class="ticker-dot"></span>Blender</span>
           <span class="ticker-item"><span class="ticker-dot"></span>Arduino</span>
         </div>
-
         <div class="ticker-track" aria-hidden="true">
           <span class="ticker-item"><span class="ticker-dot"></span>C#</span>
           <span class="ticker-item"><span class="ticker-dot"></span>Python</span>
@@ -290,79 +80,57 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-up fade-up-2">
       <h2>Featured</h2>
       <div class="grid">
         <article class="card">
           <h3><a href="projects.html#software-projects">VR Tractor Driving Simulator</a></h3>
-          <p>Immersive training prototype that demonstrated realistic vehicle dynamics and seat-gated UI.</p>
+          <p class="muted">Immersive training prototype with realistic vehicle dynamics and seat-gated UI.</p>
           <div class="tags">
             <span class="tag">C#</span><span class="tag">Unity</span><span class="tag">VR</span>
           </div>
         </article>
         <article class="card">
           <h3><a href="research.html#eye-tracking">Eye-Tracking Research</a></h3>
-          <p>Experimental pipeline that analysed gaze patterns for interaction and usability studies.</p>
+          <p class="muted">Experimental pipeline analysing gaze patterns for interaction and usability studies.</p>
           <div class="tags">
             <span class="tag">Python</span><span class="tag">Analytics</span>
           </div>
         </article>
         <article class="card">
           <h3><a href="research.html#itsl">ITSL Group Project</a></h3>
-          <p>Team built learning prototype with structured documentation and content architecture.</p>
+          <p class="muted">Team-built learning prototype with structured documentation and content architecture.</p>
           <div class="tags">
             <span class="tag">Web</span><span class="tag">Documentation</span>
           </div>
         </article>
       </div>
     </section>
+
   </main>
 
-  <footer class="footer container">
+  <footer class="footer">
     <small>© <span id="y"></span> Langelihle Malaza</small>
   </footer>
 
   <script>
-    const yearSpan = document.getElementById('y');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
+    document.getElementById('y').textContent = new Date().getFullYear();
     const path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => {
+    document.querySelectorAll('#main-nav a').forEach(a => {
       if (a.getAttribute('href') === path) a.classList.add('active');
     });
-
     const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-    const body = document.body;
-
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('open');
-        if (!isOpen) {
-          nav.classList.add('open');
-          body.classList.add('nav-open');
-          toggle.classList.add('open');
-          toggle.textContent = '✕';
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('open');
-          body.classList.remove('nav-open');
-          toggle.classList.remove('open');
-          toggle.textContent = '☰';
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
+    const nav    = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.textContent = open ? '✕' : '☰';
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.textContent = '☰';
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   </script>
 </body>
 </html>
