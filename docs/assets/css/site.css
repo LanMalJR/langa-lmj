@@ -136,7 +136,7 @@ strong { color: var(--text); font-weight: 600; }
   display: none;
   background: none; border: none; cursor: pointer;
   color: var(--text-muted); font-size: 1.3rem; padding: 4px 6px;
-  line-height: 1;
+  line-height: 1; position: relative; z-index: 210;
 }
 
 /* ── Cards / Glass surfaces ─────────────────────────────── */
@@ -394,15 +394,13 @@ textarea { resize: vertical; min-height: 130px; }
   #menu-toggle { display: block; }
 
   #main-nav.open {
-    display: flex; flex-direction: column;
-    position: fixed; top: var(--nav-h); left: 0; right: 0;
-    background: rgba(8,12,16,.96);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(8,12,16,.97);
     backdrop-filter: blur(24px);
-    padding: 1rem 1.5rem 1.5rem;
-    border-bottom: 1px solid var(--glass-border);
-    gap: .2rem; z-index: 199;
+    gap: .25rem; z-index: 198;
   }
-  #main-nav.open a { font-size: .95rem; padding: .7rem 0; }
+  #main-nav.open a { font-size: 1.6rem; font-weight: 600; padding: .85rem 2rem; letter-spacing: -.02em; }
 
   .container { padding: calc(var(--nav-h) + 2.5rem) 1.1rem 4rem; }
   .grid { grid-template-columns: 1fr; }
